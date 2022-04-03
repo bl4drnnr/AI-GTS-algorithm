@@ -10,6 +10,8 @@ import json
 
 
 def H(z, x, y):
+    if x == z:
+        return format(z / y + (x/z) ** 0.5, ".2f") + " - Attribute is key"
     return format(z / y + (x/z) ** 0.5, ".2f")
 
 
