@@ -99,60 +99,60 @@
       "socz": 1
     },
     {
-      "wiek": 0,
-      "wada": 0,
-      "ast": 0,
+      "wiek": 1,
+      "wada": 1,
+      "ast": 1,
       "lz": 0,
-      "socz": 1
+      "socz": 0
+    },
+    {
+      "wiek": 1,
+      "wada": 0,
+      "ast": 1,
+      "lz": 1,
+      "socz": 0
     },
     {
       "wiek": 0,
       "wada": 0,
       "ast": 0,
-      "lz": 0,
-      "socz": 1
+      "lz": 1,
+      "socz": 0
+    },
+    {
+      "wiek": 1,
+      "wada": 0,
+      "ast": 0,
+      "lz": 1,
+      "socz": 0
+    },
+    {
+      "wiek": 1,
+      "wada": 1,
+      "ast": 0,
+      "lz": 1,
+      "socz": 0
     },
     {
       "wiek": 0,
-      "wada": 0,
+      "wada": 1,
       "ast": 0,
       "lz": 0,
       "socz": 1
     },
     {
-      "wiek": 0,
-      "wada": 0,
+      "wiek": 1,
+      "wada": 1,
       "ast": 0,
       "lz": 0,
       "socz": 1
     },
     {
-      "wiek": 0,
-      "wada": 0,
-      "ast": 0,
+      "wiek": 2,
+      "wada": 1,
+      "ast": 1,
       "lz": 0,
-      "socz": 1
-    },
-    {
-      "wiek": 0,
-      "wada": 0,
-      "ast": 0,
-      "lz": 0,
-      "socz": 1
-    },
-    {
-      "wiek": 0,
-      "wada": 0,
-      "ast": 0,
-      "lz": 0,
-      "socz": 1
-    },
-    {
-      "wiek": 0,
-      "wada": 0,
-      "ast": 0,
-      "lz": 0,
-      "socz": 1
+      "socz": 0
     }
   ]
 }
