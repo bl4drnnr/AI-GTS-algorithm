@@ -1,3 +1,27 @@
+import json
+
+
+def G(Ep, Eb, E):
+    return (Ep + Eb) / E
+
+
+def A(Ep, Eb):
+    return Ep / (Ep + Eb)
+
+
+def H(Gvalue, Avalue):
+    return Gvalue + Avalue ** 1 / 2
+
+
+createdRules = []
+
+f = open('input.json')
+data = json.load(f)
+
+for i in data['inputdata']:
+    print(i)
+
+
 # WIEK:
 #   Mlody - 0
 #   starczy - 1
@@ -19,10 +43,3 @@
 #   Brak - 0
 #   Miekkie - 1
 #   Twarde - 2
-
-import json
-f = open('input.json')
-data = json.load(f)
-
-for i in data['inputdata']:
-    print(i)
