@@ -8,11 +8,37 @@ import json
 # def A(Ep, Eb):
 #     return Ep / (Ep + Eb)
 
+def getRule(ruleName, ruleValue):
+    return {
+        'wiek': {
+            "0": "Wiek = Młody",
+            "1": "Wiek = Starczy",
+            "2": "Wiek = Prestarczy"
+        }.get(ruleValue),
+        'wada': {
+            "0": "Wada = Krotkowidz",
+            "1": "Wada = Dalekowidz"
+        }.get(ruleValue),
+        'ast': {
+            "0": "Astygmatyzm = Nie",
+            "1": "Astygmatyzm = Tak"
+        }.get(ruleValue),
+        'lz': {
+            "0": "Lzawienie = Normalne",
+            "1": "Lzawienie = Zmniejszone"
+        }.get(ruleValue),
+        'socz': {
+            "0": "Soczewki = Brak",
+            "1": "Soczewki = Miekkie",
+            "2": "Soczewki = Twarde"
+        }.get(ruleValue)
+    }.get(ruleName)
+
 
 def H(z, x, y):
     if x == z:
-        return format(z / y + (x/z) ** 0.5, ".2f") + " - rule attribute"
-    return format(z / y + (x/z) ** 0.5, ".2f")
+        return format(z / y + (x / z) ** 0.5, ".2f") + " - rule attribute"
+    return format(z / y + (x / z) ** 0.5, ".2f")
 
 
 def extractData(dataToExtract):
@@ -68,30 +94,7 @@ for iterate in range(4):
 for rule in attrsValues:
     for k, v in rule.items():
         if "rule" in v:
-            createdRules.append("IF {ruleVal} = {ruleRes} THEN {attr} = {res}"
-                                .format(ruleVal=k, ruleRes=firstRecord[k], attr='socz', res=firstRecord['socz']))
+            createdRules.append("IF {rule} THEN {res}"
+                                .format(rule=getRule(k, str(firstRecord[k])), res=getRule('socz', str(firstRecord['socz']))))
 
 print(createdRules)
-
-
-# WIEK:
-#   Mlody - 0
-#   starczy - 1
-#   prestarczy - 2
-
-# WADA:
-#   Krot - 0
-#   Dal - 1
-
-# AST:
-#   Nie - 0
-#   Tak - 1
-
-# LZ:
-#   Norm - 0
-#   Zmn - 1
-
-# SOCZ:
-#   Brak - 0
-#   Miekkie - 1
-#   Twarde - 2
