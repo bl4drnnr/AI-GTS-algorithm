@@ -1,16 +1,16 @@
 import json
 
 
-def G(Ep, Eb, E):
-    return (Ep + Eb) / E
+# def G(Ep, Eb, E):
+#     return (Ep + Eb) / E
+#
+#
+# def A(Ep, Eb):
+#     return Ep / (Ep + Eb)
 
 
-def A(Ep, Eb):
-    return Ep / (Ep + Eb)
-
-
-def H(Gvalue, Avalue):
-    return Gvalue + Avalue ** 1 / 2
+def H(z, x, y):
+    return format(z / y + (x/z) ** 0.5, ".2f")
 
 
 def extractData(dataToExtract):
@@ -37,7 +37,6 @@ def extractData(dataToExtract):
         for attr, value in item.items():
             if attr != 'socz':
                 extracteddata[attr][str(value)] += 1
-                # extracteddata[attr][value] += 1
 
     return extracteddata
 
@@ -49,9 +48,20 @@ createdRules = []
 inputDataLen = len(data['inputdata'])
 firstRecord = data['inputdata'][0]
 
-print(extractData(data['inputdata']))
+for iterate in range(4):
+    totalQuantityOfAttr = 1
+    totalQuantityOfMismatchAttr = 1
+    for i in data['inputdata'][1:]:
 
-# for i in data['inputdata'][1:]:
+        if i[list(firstRecord)[iterate]] == firstRecord[list(firstRecord)[iterate]]:
+            totalQuantityOfAttr += 1
+
+        if i[list(firstRecord)[iterate]] == firstRecord[list(firstRecord)[iterate]] \
+                and i['socz'] == firstRecord['socz']:
+            totalQuantityOfMismatchAttr += 1
+
+    print(str(list(firstRecord)[iterate])
+          + ": " + str(H(totalQuantityOfAttr, totalQuantityOfMismatchAttr, inputDataLen)))
 
 # WIEK:
 #   Mlody - 0

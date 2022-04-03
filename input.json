@@ -2,6 +2,13 @@
   "inputdata": [
     {
       "wiek": 0,
+      "wada": 1,
+      "ast": 0,
+      "lz": 1,
+      "socz": 0
+    },
+    {
+      "wiek": 0,
       "wada": 0,
       "ast": 0,
       "lz": 0,
@@ -13,13 +20,6 @@
       "ast": 1,
       "lz": 0,
       "socz": 2
-    },
-    {
-      "wiek": 0,
-      "wada": 1,
-      "ast": 0,
-      "lz": 1,
-      "socz": 0
     },
     {
       "wiek": 0,
