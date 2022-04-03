@@ -13,14 +13,45 @@ def H(Gvalue, Avalue):
     return Gvalue + Avalue ** 1 / 2
 
 
-createdRules = []
+def extractData(dataToExtract):
+    extracteddata = {
+        "wiek": {
+            "0": 0,
+            "1": 0,
+            "2": 0
+        },
+        "wada": {
+            "0": 0,
+            "1": 0
+        },
+        "ast": {
+            "0": 0,
+            "1": 0
+        },
+        "lz": {
+            "0": 0,
+            "1": 0
+        }
+    }
+    for item in dataToExtract:
+        for attr, value in item.items():
+            if attr != 'socz':
+                extracteddata[attr][str(value)] += 1
+                # extracteddata[attr][value] += 1
+
+    return extracteddata
+
 
 f = open('input.json')
 data = json.load(f)
 
-for i in data['inputdata']:
-    print(i)
+createdRules = []
+inputDataLen = len(data['inputdata'])
+firstRecord = data['inputdata'][0]
 
+print(extractData(data['inputdata']))
+
+# for i in data['inputdata'][1:]:
 
 # WIEK:
 #   Mlody - 0
