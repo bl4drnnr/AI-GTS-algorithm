@@ -11,7 +11,7 @@ import json
 
 def H(z, x, y):
     if x == z:
-        return format(z / y + (x/z) ** 0.5, ".2f") + " - Attribute is key"
+        return format(z / y + (x/z) ** 0.5, ".2f") + " - rule attribute"
     return format(z / y + (x/z) ** 0.5, ".2f")
 
 
@@ -47,6 +47,7 @@ f = open('input.json')
 data = json.load(f)
 
 createdRules = []
+attrsValues = []
 inputDataLen = len(data['inputdata'])
 firstRecord = data['inputdata'][0]
 
@@ -62,8 +63,16 @@ for iterate in range(4):
                 and i['socz'] == firstRecord['socz']:
             totalQuantityOfMismatchAttr += 1
 
-    print(str(list(firstRecord)[iterate])
-          + ": " + str(H(totalQuantityOfAttr, totalQuantityOfMismatchAttr, inputDataLen)))
+    attrsValues.append({list(firstRecord)[iterate]: H(totalQuantityOfAttr, totalQuantityOfMismatchAttr, inputDataLen)})
+
+for rule in attrsValues:
+    for k, v in rule.items():
+        if "rule" in v:
+            createdRules.append("IF {ruleVal} = {ruleRes} THEN {attr} = {res}"
+                                .format(ruleVal=k, ruleRes=firstRecord[k], attr='socz', res=firstRecord['socz']))
+
+print(createdRules)
+
 
 # WIEK:
 #   Mlody - 0
