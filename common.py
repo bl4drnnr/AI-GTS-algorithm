@@ -58,3 +58,10 @@ def H(z, x, y):
         return format(z / y + (x / z) ** 0.5, ".2f") + " - rule attribute"
     return format(z / y + (x / z) ** 0.5, ".2f")
 
+
+# def G(Ep, Eb, E):
+#     return (Ep + Eb) / E
+#
+#
+# def A(Ep, Eb):
+#     return Ep / (Ep + Eb)
