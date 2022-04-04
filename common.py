@@ -66,3 +66,4 @@ def H(z, x, y):
 # def A(Ep, Eb):
 #     return Ep / (Ep + Eb)
 
+
