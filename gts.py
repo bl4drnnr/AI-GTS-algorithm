@@ -30,14 +30,9 @@ for _ in range(inputDataLen):
         print(test)
         attrsValues.append(test)
         test = {}
-        # attrsValues.append({list(firstRecord)[iterate]: H(totalQuantityOfAttr, totalQuantityOfMismatchAttr, inputDataLen)})
-
-# print(attrsValues)
-# print(test)
 
 for rule in attrsValues:
     for k, v in rule.items():
         if "rule" in v:
             createdRules.append("IF {rule} THEN {res}"
                                 .format(rule=getRule(k, str(firstRecord[k])), res=getRule('socz', str(firstRecord['socz']))))
-# print(createdRules)
