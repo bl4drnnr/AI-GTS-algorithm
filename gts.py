@@ -10,6 +10,8 @@ attrsValues = []
 inputDataLen = len(data['inputdata'])
 firstRecord = data['inputdata'][0]
 
+# see docs
+# fix iterations
 for _ in range(inputDataLen):
     for iterate in range(4):
         totalQuantityOfAttr = 1
@@ -25,11 +27,12 @@ for _ in range(inputDataLen):
                 totalQuantityOfMismatchAttr += 1
 
         test[list(firstRecord)[iterate]] = H(totalQuantityOfAttr, totalQuantityOfMismatchAttr, inputDataLen)
+        print(test)
         attrsValues.append(test)
         test = {}
         # attrsValues.append({list(firstRecord)[iterate]: H(totalQuantityOfAttr, totalQuantityOfMismatchAttr, inputDataLen)})
 
-print(attrsValues)
+# print(attrsValues)
 # print(test)
 
 for rule in attrsValues:
