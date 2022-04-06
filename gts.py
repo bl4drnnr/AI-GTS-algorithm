@@ -1,10 +1,11 @@
 import json
-from common import getRule, extractData, H
+from common import getRule, H
 
 f = open('input.json')
 data = json.load(f)
 
 inputDataLen = len(data['inputdata'])
+generatedRules = []
 
 for x in range(inputDataLen):
     currentRecord = data['inputdata'][x]
@@ -36,8 +37,26 @@ for x in range(inputDataLen):
                     currentRecordDataFiltered[list(currentRecord)[iterator]] -= 1
 
     # Check if there is already generated rule
+    print("currentRecordData: " + str(currentRecordData))
+    print("currentRecordDataFiltered: " + str(currentRecordDataFiltered))
+    print("currentRecord: " + str(currentRecord))
     for rule in range(4):
         quantityOfRightRecords = \
             currentRecordData[list(currentRecordData)[rule]] - \
             currentRecordDataFiltered[list(currentRecordDataFiltered)[rule]]
-        print(H(currentRecordData[list(currentRecordData)[rule]], quantityOfRightRecords, inputDataLen))
+        quantityOfAllThisTypeRecords = currentRecordData[list(currentRecordData)[rule]]
+        generatedRule = H(quantityOfAllThisTypeRecords, quantityOfRightRecords, inputDataLen)
+        if generatedRule == "rule":
+            generatedRules.append({x: "IF {condition} THEN {response}"
+                .format(
+                    condition=getRule(list(currentRecordData)[rule], currentRecord[list(currentRecord)[rule]]),
+                    response=getRule("socz", currentRecord["socz"]),
+                    )})
+            print(list(currentRecordData)[rule] + " rule ")
+        else:
+            print(list(currentRecordData)[rule] + " not rule :( " + str(generatedRule))
+    print('#####################')
+
+for item in generatedRules:
+    print(item)
+    print('-------------')
