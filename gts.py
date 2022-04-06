@@ -36,3 +36,8 @@ for x in range(inputDataLen):
                     currentRecordDataFiltered[list(currentRecord)[iterator]] -= 1
 
     # Check if there is already generated rule
+    for rule in range(4):
+        quantityOfRightRecords = \
+            currentRecordData[list(currentRecordData)[rule]] - \
+            currentRecordDataFiltered[list(currentRecordDataFiltered)[rule]]
+        print(H(currentRecordData[list(currentRecordData)[rule]], quantityOfRightRecords, inputDataLen))
