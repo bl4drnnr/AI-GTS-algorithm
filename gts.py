@@ -1,7 +1,6 @@
 import json
 from common import getRule, extractData, H
 
-
 f = open('input.json')
 data = json.load(f)
 
@@ -11,15 +10,20 @@ inputDataLen = len(data['inputdata'])
 # firstRecord = data['inputdata'][0]
 
 for x in range(inputDataLen):
-    totalQuantityOfAttr = 1
-    totalQuantityOfMismatchAttr = 1
     currentRecord = data['inputdata'][x]
+    currentRecordData = {
+        "wiek": 0,
+        "wada": 0,
+        "ast": 0,
+        "lz": 0,
+    }
+    # Collecting information for one current record
     for y in data['inputdata']:
+        for iterator in range(4):
+            if y[list(currentRecord)[iterator]] == currentRecord[list(currentRecord)[iterator]]:
+                currentRecordData[list(currentRecord)[iterator]] += 1
+    print(currentRecordData)
 
-        for iterate in range(4):
-            if y[list(currentRecord)[iterate]] == currentRecord[list(currentRecord)[iterate]]:
-                print(y[list(currentRecord)[iterate]])
-                totalQuantityOfAttr += 1
 
 # see docs
 # fix iterations
