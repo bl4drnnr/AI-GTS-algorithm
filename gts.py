@@ -54,6 +54,8 @@ for x in range(inputDataLen):
                     )})
             print(list(currentRecordData)[rule] + " rule ")
         else:
+            # Continue here by create new loop for records with highest H to find and generate new rule
+            # Also something needed to be done to write/update those rules
             print(list(currentRecordData)[rule] + " not rule :( " + str(generatedRule))
     print('#####################')
 
