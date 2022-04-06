@@ -36,31 +36,3 @@ for x in range(inputDataLen):
                     currentRecordDataFiltered[list(currentRecord)[iterator]] -= 1
 
     # Check if there is already generated rule
-
-# see docs
-# fix iterations
-# for _ in range(inputDataLen):
-#     for iterate in range(4):
-#         totalQuantityOfAttr = 1
-#         totalQuantityOfMismatchAttr = 1
-#         test = {}
-#         for i in data['inputdata'][1:]:
-#
-#             if i[list(firstRecord)[iterate]] == firstRecord[list(firstRecord)[iterate]]:
-#                 totalQuantityOfAttr += 1
-#
-#             if i[list(firstRecord)[iterate]] == firstRecord[list(firstRecord)[iterate]] \
-#                     and i['socz'] == firstRecord['socz']:
-#                 totalQuantityOfMismatchAttr += 1
-#
-#         test[list(firstRecord)[iterate]] = H(totalQuantityOfAttr, totalQuantityOfMismatchAttr, inputDataLen)
-#         print(test)
-#         attrsValues.append(test)
-#         test = {}
-
-# for rule in attrsValues:
-#     for k, v in rule.items():
-#         if "rule" in v:
-#             createdRules.append("IF {rule} THEN {res}"
-#                                 .format(rule=getRule(k, str(firstRecord[k])), res=getRule('socz', str(firstRecord['socz']))))
-#
