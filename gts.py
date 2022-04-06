@@ -8,6 +8,7 @@ inputDataLen = len(data['inputdata'])
 
 for x in range(inputDataLen):
     currentRecord = data['inputdata'][x]
+    cutterInputData = data['inputdata'][0:x] + data['inputdata'][x + 1:]
     currentRecordData = {
         "wiek": 0,
         "wada": 0,
@@ -22,6 +23,7 @@ for x in range(inputDataLen):
     }
 
     # Collecting information for one current record
+    # for y in data['inputdata']:
     for y in data['inputdata']:
         for iterator in range(4):
             if y[list(currentRecord)[iterator]] == currentRecord[list(currentRecord)[iterator]]:
@@ -29,6 +31,7 @@ for x in range(inputDataLen):
                 currentRecordDataFiltered[list(currentRecord)[iterator]] += 1
 
     # Filter collected data to count values of G, A and H
+    # for z in data['inputdata']:
     for z in data['inputdata']:
         if z['socz'] == currentRecord['socz']:
             for iterator in range(4):

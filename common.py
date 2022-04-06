@@ -56,13 +56,4 @@ def extractData(dataToExtract):
 def H(Epb, Ep, E):
     if Ep / Epb == 1:
         return "rule attribute"
-    return format((Epb / E) + (Ep / Epb) ** 0.5, ".2f")
-
-
-# def G(Ep, Eb, E):
-#     return (Ep + Eb) / E
-#
-#
-# def A(Ep, Eb):
-#     return Ep / (Ep + Eb)
-
+    return format((Epb / E) + (Ep / Epb) ** 0.5, ".3f")
