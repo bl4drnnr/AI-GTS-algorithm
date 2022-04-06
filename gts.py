@@ -47,13 +47,16 @@ for x in range(inputDataLen):
         quantityOfAllThisTypeRecords = currentRecordData[list(currentRecordData)[rule]]
         generatedRule = H(quantityOfAllThisTypeRecords, quantityOfRightRecords, inputDataLen)
         if generatedRule == "rule":
-            generatedRules.append("IF {condition} THEN {response}"
-                                  .format(condition=getRule(list(currentRecordData)[rule], currentRecord[list(currentRecord)[rule]]),
-                                          response=getRule("socz", currentRecord["socz"]),
-                                          ))
+            generatedRules.append({x: "IF {condition} THEN {response}"
+                .format(
+                    condition=getRule(list(currentRecordData)[rule], currentRecord[list(currentRecord)[rule]]),
+                    response=getRule("socz", currentRecord["socz"]),
+                    )})
             print(list(currentRecordData)[rule] + " rule ")
         else:
             print(list(currentRecordData)[rule] + " not rule :( " + str(generatedRule))
     print('#####################')
 
-print(generatedRules)
+for item in generatedRules:
+    print(item)
+    print('-------------')
