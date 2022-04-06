@@ -40,4 +40,6 @@ for x in range(inputDataLen):
         quantityOfRightRecords = \
             currentRecordData[list(currentRecordData)[rule]] - \
             currentRecordDataFiltered[list(currentRecordDataFiltered)[rule]]
-        print(H(currentRecordData[list(currentRecordData)[rule]], quantityOfRightRecords, inputDataLen))
+        quantityOfAllThisTypeRecords = currentRecordData[list(currentRecordData)[rule]]
+        print(H(quantityOfAllThisTypeRecords, quantityOfRightRecords, inputDataLen))
+    print('#####################')
