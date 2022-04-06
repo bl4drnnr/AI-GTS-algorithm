@@ -1,5 +1,5 @@
 import json
-from common import getRule, extractData, H
+from common import getRule, H
 
 f = open('input.json')
 data = json.load(f)
@@ -47,10 +47,10 @@ for x in range(inputDataLen):
         quantityOfAllThisTypeRecords = currentRecordData[list(currentRecordData)[rule]]
         generatedRule = H(quantityOfAllThisTypeRecords, quantityOfRightRecords, inputDataLen)
         if generatedRule == "rule":
-            generatedRules.append("IF {condition} THEN {res} = {resV}"
+            generatedRules.append("IF {condition} THEN {response}"
                                   .format(condition=getRule(list(currentRecordData)[rule], currentRecord[list(currentRecord)[rule]]),
-                                          res="Socz",
-                                          resV=currentRecord["socz"]))
+                                          response=getRule("socz", currentRecord["socz"]),
+                                          ))
             print(list(currentRecordData)[rule] + " rule ")
         else:
             print(list(currentRecordData)[rule] + " not rule :( " + str(generatedRule))
