@@ -53,10 +53,10 @@ def extractData(dataToExtract):
     return extracteddata
 
 
-def H(z, x, y):
-    if x == z:
-        return format(z / y + (x / z) ** 0.5, ".2f") + " - rule attribute"
-    return format(z / y + (x / z) ** 0.5, ".2f")
+def H(Epb, Ep, E):
+    if Ep / Epb == 1:
+        return "rule attribute"
+    return format((Epb / E) + (Ep / Epb) ** 0.5, ".2f")
 
 
 # def G(Ep, Eb, E):
