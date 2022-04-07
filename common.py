@@ -1,23 +1,23 @@
 def getRule(ruleName, ruleValue):
     return {
-        'wiek': {
+        'Wiek': {
             0: "Wiek = Młody",
             1: "Wiek = Starczy",
             2: "Wiek = Prestarczy"
         }.get(ruleValue),
-        'wada': {
+        'Wada_wzroku': {
             0: "Wada = Krotkowidz",
             1: "Wada = Dalekowidz"
         }.get(ruleValue),
-        'ast': {
+        'Astygmatyzm': {
             0: "Astygmatyzm = Nie",
             1: "Astygmatyzm = Tak"
         }.get(ruleValue),
-        'lz': {
+        'Lzawienie': {
             0: "Lzawienie = Normalne",
             1: "Lzawienie = Zmniejszone"
         }.get(ruleValue),
-        'socz': {
+        'SOCZEWKI': {
             0: "Soczewki = Brak",
             1: "Soczewki = Miekkie",
             2: "Soczewki = Twarde"
