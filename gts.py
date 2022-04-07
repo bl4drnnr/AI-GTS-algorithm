@@ -55,12 +55,17 @@ for x in range(inputDataLen):
                     )})
             print(list(currentRecordData)[rule] + " rule ")
         else:
-            # Continue here by create new loop for records with highest H to find and generate new rule
-            # Also something needed to be done to write/update those rules
             nonRulesAttributes.append(generatedRule)
             print(list(currentRecordData)[rule] + " not rule :( " + str(generatedRule))
 
     print("nonRulesAttributes: " + str(nonRulesAttributes))
+    firstBiggestValue = max(nonRulesAttributes)
+    nonRulesAttributes.remove(firstBiggestValue)
+    secondBiggestValue = max(nonRulesAttributes)
+    nonRulesAttributes.remove(secondBiggestValue)
+    print("nonRulesAttributes: " + str(nonRulesAttributes))
+    print("firstBiggestValue: " + str(firstBiggestValue))
+    print("secondBiggestValue: " + str(secondBiggestValue))
     nonRulesAttributes = []
     # if inputDataLen == len(generatedRules):
     #     print("Done")
