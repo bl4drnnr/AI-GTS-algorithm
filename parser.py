@@ -6,6 +6,10 @@ data = data['inputdata']
 allPossibleAttributes = {}
 
 
+def getAllPossibleAttributes():
+    return allPossibleAttributes
+
+
 def parseInputData():
     # Get all possible attributes and classes
     for item in data:
@@ -25,4 +29,5 @@ def parseInputData():
     for item in data:
         for attr, value in item.items():
             item[attr] = allPossibleAttributes[attr][value]
+    print("allPossibleAttributes: " + str(allPossibleAttributes))
     return data

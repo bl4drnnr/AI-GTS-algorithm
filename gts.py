@@ -1,6 +1,7 @@
 from common import getRule, getTwoMaxValue, H
-from parser import parseInputData
+from parser import parseInputData, getAllPossibleAttributes
 data = parseInputData()
+allPossibleAttributes = getAllPossibleAttributes()
 
 inputDataLength = len(data)
 generatedRules = []
@@ -46,10 +47,12 @@ for x in range(inputDataLength):
         quantityOfAllThisTypeRecords = currentRecordData[list(currentRecordData)[rule]]
         generatedRule = H(quantityOfAllThisTypeRecords, quantityOfRightRecords, inputDataLength)
         if generatedRule == "rule":
-            generatedRules.append({x: "IF {condition} THEN {response}"
+            generatedRules.append({x: "IF {rule} = {condition} THEN {response} = {result}"
                 .format(
-                    condition=getRule(list(currentRecordData)[rule], currentRecord[list(currentRecord)[rule]]),
-                    response=getRule("SOCZEWKI", currentRecord["SOCZEWKI"]),
+                    rule=list(currentRecordData)[rule],
+                    condition=getRule(list(currentRecordData)[rule], currentRecord[list(currentRecord)[rule]], allPossibleAttributes),
+                    response="SOCZEWKI",
+                    result=getRule("SOCZEWKI", currentRecord["SOCZEWKI"], allPossibleAttributes)
                     )})
             print(list(currentRecordData)[rule] + " rule ")
         else:
