@@ -1,15 +1,12 @@
-import json
 from common import getRule, getTwoMaxValue, H
 from parser import parseInputData
+data = parseInputData()
 
-f = open('input.json')
-data = json.load(f)
-
-inputDataLength = len(data['inputdata'])
+inputDataLength = len(data)
 generatedRules = []
 
 for x in range(inputDataLength):
-    currentRecord = data['inputdata'][x]
+    currentRecord = data[x]
     currentRecordData = {
         "wiek": 0,
         "wada": 0,
@@ -24,14 +21,14 @@ for x in range(inputDataLength):
     }
 
     # Collecting information for one current record
-    for y in data['inputdata']:
+    for y in data:
         for iterator in range(4):
             if y[list(currentRecord)[iterator]] == currentRecord[list(currentRecord)[iterator]]:
                 currentRecordData[list(currentRecord)[iterator]] += 1
                 currentRecordDataFiltered[list(currentRecord)[iterator]] += 1
 
     # Filter collected data to count values of G, A and H
-    for z in data['inputdata']:
+    for z in data:
         if z['socz'] == currentRecord['socz']:
             for iterator in range(4):
                 if currentRecord[list(currentRecord)[iterator]] == z[list(currentRecord)[iterator]]:

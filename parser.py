@@ -3,9 +3,7 @@ import json
 f = open('input2.json')
 data = json.load(f)
 data = data['inputdata']
-
 allPossibleAttributes = {}
-parsedInput = []
 
 
 def parseInputData():
@@ -27,9 +25,4 @@ def parseInputData():
     for item in data:
         for attr, value in item.items():
             item[attr] = allPossibleAttributes[attr][value]
-
-
-parseInputData()
-print("allPossibleAttributes: " + str(allPossibleAttributes))
-for i in data:
-    print(i)
+    return data
