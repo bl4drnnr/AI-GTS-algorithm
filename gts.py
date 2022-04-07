@@ -1,5 +1,5 @@
 import json
-from common import getRule, H
+from common import getRule, getTwoMaxValue, H
 
 f = open('input.json')
 data = json.load(f)
@@ -55,22 +55,14 @@ for x in range(inputDataLen):
                     )})
             print(list(currentRecordData)[rule] + " rule ")
         else:
-            nonRulesAttributes.append(generatedRule)
+            nonRulesAttributes.append({list(currentRecordData)[rule]: generatedRule})
             print(list(currentRecordData)[rule] + " not rule :( " + str(generatedRule))
 
     print("nonRulesAttributes: " + str(nonRulesAttributes))
-    firstBiggestValue = max(nonRulesAttributes)
-    nonRulesAttributes.remove(firstBiggestValue)
-    secondBiggestValue = max(nonRulesAttributes)
-    nonRulesAttributes.remove(secondBiggestValue)
-    print("nonRulesAttributes: " + str(nonRulesAttributes))
-    print("firstBiggestValue: " + str(firstBiggestValue))
-    print("secondBiggestValue: " + str(secondBiggestValue))
+    getTwoMaxValue(nonRulesAttributes)
     nonRulesAttributes = []
+    # Iterate one more time input data, but with 1+ conditions
+
     # if inputDataLen == len(generatedRules):
     #     print("Done")
     print('#####################')
-
-for item in generatedRules:
-    print(item)
-    print('-------------')

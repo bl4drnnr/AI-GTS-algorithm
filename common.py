@@ -25,6 +25,10 @@ def getRule(ruleName, ruleValue):
     }.get(ruleName)
 
 
+def getTwoMaxValue(obj):
+    print(sorted(obj, key=lambda dct: list(dct.values())[0])[-2:])
+
+
 def H(Epb, Ep, E):
     if Ep / Epb == 1:
         return "rule"
