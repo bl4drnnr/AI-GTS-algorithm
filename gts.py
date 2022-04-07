@@ -55,6 +55,7 @@ for x in range(inputDataLength):
     print("twoMaxValues: " + str(twoMaxValues))
     nonRulesAttributes = []
     # Iterate one more time input data, but with 1+ conditions
+    # Recount my calcs, because it looks like something went wrong
 
     # if inputDataLength == len(generatedRules):
     #     print("Stop, all rules has been generated!")
