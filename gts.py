@@ -1,13 +1,14 @@
 import json
-from common import getRule, H
+from common import getRule, getTwoMaxValue, H
+from parser import parseInputData
 
 f = open('input.json')
 data = json.load(f)
 
-inputDataLen = len(data['inputdata'])
+inputDataLength = len(data['inputdata'])
 generatedRules = []
 
-for x in range(inputDataLen):
+for x in range(inputDataLength):
     currentRecord = data['inputdata'][x]
     currentRecordData = {
         "wiek": 0,
@@ -46,7 +47,7 @@ for x in range(inputDataLen):
             currentRecordData[list(currentRecordData)[rule]] - \
             currentRecordDataFiltered[list(currentRecordDataFiltered)[rule]]
         quantityOfAllThisTypeRecords = currentRecordData[list(currentRecordData)[rule]]
-        generatedRule = H(quantityOfAllThisTypeRecords, quantityOfRightRecords, inputDataLen)
+        generatedRule = H(quantityOfAllThisTypeRecords, quantityOfRightRecords, inputDataLength)
         if generatedRule == "rule":
             generatedRules.append({x: "IF {condition} THEN {response}"
                 .format(
@@ -55,17 +56,20 @@ for x in range(inputDataLen):
                     )})
             print(list(currentRecordData)[rule] + " rule ")
         else:
-            # Continue here by create new loop for records with highest H to find and generate new rule
-            # Also something needed to be done to write/update those rules
-            nonRulesAttributes.append(generatedRule)
+            nonRulesAttributes.append({list(currentRecordData)[rule]: generatedRule})
             print(list(currentRecordData)[rule] + " not rule :( " + str(generatedRule))
 
     print("nonRulesAttributes: " + str(nonRulesAttributes))
+    twoMaxValues = getTwoMaxValue(nonRulesAttributes)
+    print("twoMaxValues: " + str(twoMaxValues))
     nonRulesAttributes = []
-    # if inputDataLen == len(generatedRules):
-    #     print("Done")
+    # Iterate one more time input data, but with 1+ conditions
+
+    # if inputDataLength == len(generatedRules):
+    #     print("Stop, all rules has been generated!")
     print('#####################')
 
 for item in generatedRules:
-    print(item)
-    print('-------------')
+    for attr, value in item.items():
+        print("{key} - {value}".format(key=attr+1, value=value))
+    # print('-------------')
