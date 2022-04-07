@@ -1,9 +1,24 @@
 import json
 
-f = open('input2.json')
+f = open('input.json')
 data = json.load(f)
 data = data['inputdata']
 allPossibleAttributes = {}
+
+
+def getAllPossibleAttributes():
+    return allPossibleAttributes
+
+
+def getKeyAttribute():
+    return list(data[0])[-1]
+
+
+def getDecisionAttributes():
+    decisionAttributes = {}
+    for item in list(data[0])[:-1]:
+        decisionAttributes[item] = 0
+    return decisionAttributes
 
 
 def parseInputData():

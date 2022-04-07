@@ -1,24 +1,16 @@
 from common import getRule, getTwoMaxValue, H
-from parser import parseInputData
+from parser import parseInputData, getAllPossibleAttributes, getKeyAttribute, getDecisionAttributes
 data = parseInputData()
+keyAttribute = getKeyAttribute()
+allPossibleAttributes = getAllPossibleAttributes()
 
 inputDataLength = len(data)
 generatedRules = []
 
 for x in range(inputDataLength):
     currentRecord = data[x]
-    currentRecordData = {
-        "wiek": 0,
-        "wada": 0,
-        "ast": 0,
-        "lz": 0,
-    }
-    currentRecordDataFiltered = {
-        "wiek": 0,
-        "wada": 0,
-        "ast": 0,
-        "lz": 0,
-    }
+    currentRecordData = getDecisionAttributes()
+    currentRecordDataFiltered = getDecisionAttributes()
 
     # Collecting information for one current record
     for y in data:
@@ -29,7 +21,7 @@ for x in range(inputDataLength):
 
     # Filter collected data to count values of G, A and H
     for z in data:
-        if z['socz'] == currentRecord['socz']:
+        if z[keyAttribute] == currentRecord[keyAttribute]:
             for iterator in range(4):
                 if currentRecord[list(currentRecord)[iterator]] == z[list(currentRecord)[iterator]]:
                     currentRecordDataFiltered[list(currentRecord)[iterator]] -= 1
@@ -46,10 +38,12 @@ for x in range(inputDataLength):
         quantityOfAllThisTypeRecords = currentRecordData[list(currentRecordData)[rule]]
         generatedRule = H(quantityOfAllThisTypeRecords, quantityOfRightRecords, inputDataLength)
         if generatedRule == "rule":
-            generatedRules.append({x: "IF {condition} THEN {response}"
+            generatedRules.append({x: "IF {rule} = {condition} THEN {response} = {result}"
                 .format(
-                    condition=getRule(list(currentRecordData)[rule], currentRecord[list(currentRecord)[rule]]),
-                    response=getRule("socz", currentRecord["socz"]),
+                    rule=list(currentRecordData)[rule],
+                    condition=getRule(list(currentRecordData)[rule], currentRecord[list(currentRecord)[rule]], allPossibleAttributes),
+                    response=keyAttribute,
+                    result=getRule(keyAttribute, currentRecord[keyAttribute], allPossibleAttributes)
                     )})
             print(list(currentRecordData)[rule] + " rule ")
         else:

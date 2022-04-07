@@ -1,158 +1,158 @@
 {
   "inputdata": [
     {
-      "wiek": 0,
-      "wada": 0,
-      "ast": 0,
-      "lz": 0,
-      "socz": 1
+      "Wiek": "mlody",
+      "Wada_wzroku": "krotkowidz",
+      "Astygmatyzm": "nie",
+      "Lzawienie": "normalne",
+      "SOCZEWKI": "miekkie"
     },
     {
-      "wiek": 0,
-      "wada": 1,
-      "ast": 1,
-      "lz": 0,
-      "socz": 2
+      "Wiek": "mlody",
+      "Wada_wzroku": "dalekowidz",
+      "Astygmatyzm": "tak",
+      "Lzawienie": "normalne",
+      "SOCZEWKI": "twarde"
     },
     {
-      "wiek": 0,
-      "wada": 0,
-      "ast": 1,
-      "lz": 1,
-      "socz": 0
+      "Wiek": "mlody",
+      "Wada_wzroku": "dalekowidz",
+      "Astygmatyzm": "nie",
+      "Lzawienie": "zmniejszone",
+      "SOCZEWKI": "brak"
     },
     {
-      "wiek": 0,
-      "wada": 1,
-      "ast": 0,
-      "lz": 1,
-      "socz": 0
+      "Wiek": "mlody",
+      "Wada_wzroku": "krotkowidz",
+      "Astygmatyzm": "tak",
+      "Lzawienie": "zmniejszone",
+      "SOCZEWKI": "brak"
     },
     {
-      "wiek": 2,
-      "wada": 0,
-      "ast": 1,
-      "lz": 1,
-      "socz": 0
+      "Wiek": "prestarczy",
+      "Wada_wzroku": "krotkowidz",
+      "Astygmatyzm": "tak",
+      "Lzawienie": "zmniejszone",
+      "SOCZEWKI": "brak"
     },
     {
-      "wiek": 2,
-      "wada": 0,
-      "ast": 0,
-      "lz": 0,
-      "socz": 1
+      "Wiek": "prestarczy",
+      "Wada_wzroku": "krotkowidz",
+      "Astygmatyzm": "nie",
+      "Lzawienie": "normalne",
+      "SOCZEWKI": "miekkie"
     },
     {
-      "wiek": 0,
-      "wada": 0,
-      "ast": 1,
-      "lz": 0,
-      "socz": 2
+      "Wiek": "mlody",
+      "Wada_wzroku": "krotkowidz",
+      "Astygmatyzm": "tak",
+      "Lzawienie": "normalne",
+      "SOCZEWKI": "twarde"
     },
     {
-      "wiek": 1,
-      "wada": 1,
-      "ast": 1,
-      "lz": 1,
-      "socz": 0
+      "Wiek": "starczy",
+      "Wada_wzroku": "dalekowidz",
+      "Astygmatyzm": "tak",
+      "Lzawienie": "zmniejszone",
+      "SOCZEWKI": "brak"
     },
     {
-      "wiek": 2,
-      "wada": 1,
-      "ast": 0,
-      "lz": 1,
-      "socz": 0
+      "Wiek": "prestarczy",
+      "Wada_wzroku": "dalekowidz",
+      "Astygmatyzm": "nie",
+      "Lzawienie": "zmniejszone",
+      "SOCZEWKI": "brak"
     },
     {
-      "wiek": 2,
-      "wada": 1,
-      "ast": 1,
-      "lz": 1,
-      "socz": 0
+      "Wiek": "prestarczy",
+      "Wada_wzroku": "dalekowidz",
+      "Astygmatyzm": "tak",
+      "Lzawienie": "zmniejszone",
+      "SOCZEWKI": "brak"
     },
     {
-      "wiek": 2,
-      "wada": 0,
-      "ast": 0,
-      "lz": 1,
-      "socz": 0
+      "Wiek": "prestarczy",
+      "Wada_wzroku": "krotkowidz",
+      "Astygmatyzm": "nie",
+      "Lzawienie": "zmniejszone",
+      "SOCZEWKI": "brak"
     },
     {
-      "wiek": 0,
-      "wada": 1,
-      "ast": 1,
-      "lz": 1,
-      "socz": 0
+      "Wiek": "mlody",
+      "Wada_wzroku": "dalekowidz",
+      "Astygmatyzm": "tak",
+      "Lzawienie": "zmniejszone",
+      "SOCZEWKI": "brak"
     },
     {
-      "wiek": 1,
-      "wada": 0,
-      "ast": 1,
-      "lz": 0,
-      "socz": 2
+      "Wiek": "starczy",
+      "Wada_wzroku": "krotkowidz",
+      "Astygmatyzm": "tak",
+      "Lzawienie": "normalne",
+      "SOCZEWKI": "twarde"
     },
     {
-      "wiek": 2,
-      "wada": 1,
-      "ast": 0,
-      "lz": 0,
-      "socz": 1
+      "Wiek": "prestarczy",
+      "Wada_wzroku": "dalekowidz",
+      "Astygmatyzm": "nie",
+      "Lzawienie": "normalne",
+      "SOCZEWKI": "miekkie"
     },
     {
-      "wiek": 1,
-      "wada": 1,
-      "ast": 1,
-      "lz": 0,
-      "socz": 0
+      "Wiek": "starczy",
+      "Wada_wzroku": "dalekowidz",
+      "Astygmatyzm": "tak",
+      "Lzawienie": "normalne",
+      "SOCZEWKI": "brak"
     },
     {
-      "wiek": 1,
-      "wada": 0,
-      "ast": 1,
-      "lz": 1,
-      "socz": 0
+      "Wiek": "starczy",
+      "Wada_wzroku": "krotkowidz",
+      "Astygmatyzm": "tak",
+      "Lzawienie": "zmniejszone",
+      "SOCZEWKI": "brak"
     },
     {
-      "wiek": 0,
-      "wada": 0,
-      "ast": 0,
-      "lz": 1,
-      "socz": 0
+      "Wiek": "mlody",
+      "Wada_wzroku": "krotkowidz",
+      "Astygmatyzm": "nie",
+      "Lzawienie": "zmniejszone",
+      "SOCZEWKI": "brak"
     },
     {
-      "wiek": 1,
-      "wada": 0,
-      "ast": 0,
-      "lz": 1,
-      "socz": 0
+      "Wiek": "starczy",
+      "Wada_wzroku": "krotkowidz",
+      "Astygmatyzm": "nie",
+      "Lzawienie": "zmniejszone",
+      "SOCZEWKI": "brak"
     },
     {
-      "wiek": 1,
-      "wada": 1,
-      "ast": 0,
-      "lz": 1,
-      "socz": 0
+      "Wiek": "starczy",
+      "Wada_wzroku": "dalekowidz",
+      "Astygmatyzm": "nie",
+      "Lzawienie": "zmniejszone",
+      "SOCZEWKI": "brak"
     },
     {
-      "wiek": 0,
-      "wada": 1,
-      "ast": 0,
-      "lz": 0,
-      "socz": 1
+      "Wiek": "mlody",
+      "Wada_wzroku": "dalekowidz",
+      "Astygmatyzm": "nie",
+      "Lzawienie": "normalne",
+      "SOCZEWKI": "miekkie"
     },
     {
-      "wiek": 1,
-      "wada": 1,
-      "ast": 0,
-      "lz": 0,
-      "socz": 1
+      "Wiek": "starczy",
+      "Wada_wzroku": "dalekowidz",
+      "Astygmatyzm": "nie",
+      "Lzawienie": "normalne",
+      "SOCZEWKI": "miekkie"
     },
     {
-      "wiek": 2,
-      "wada": 1,
-      "ast": 1,
-      "lz": 0,
-      "socz": 0
+      "Wiek": "prestarczy",
+      "Wada_wzroku": "dalekowidz",
+      "Astygmatyzm": "tak",
+      "Lzawienie": "normalne",
+      "SOCZEWKI": "brak"
     }
   ]
 }
