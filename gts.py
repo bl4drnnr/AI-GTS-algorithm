@@ -61,6 +61,7 @@ for x in range(inputDataLength):
     #     print("Stop, all rules has been generated!")
     print('#####################')
 
+
 for item in generatedRules:
     for attr, value in item.items():
         print("{key} - {value}".format(key=attr+1, value=value))
