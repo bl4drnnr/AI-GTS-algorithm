@@ -40,6 +40,7 @@ for x in range(inputDataLen):
     print("currentRecordData: " + str(currentRecordData))
     print("currentRecordDataFiltered: " + str(currentRecordDataFiltered))
     print("currentRecord: " + str(currentRecord))
+    nonRulesAttributes = []
     for rule in range(4):
         quantityOfRightRecords = \
             currentRecordData[list(currentRecordData)[rule]] - \
@@ -56,7 +57,13 @@ for x in range(inputDataLen):
         else:
             # Continue here by create new loop for records with highest H to find and generate new rule
             # Also something needed to be done to write/update those rules
+            nonRulesAttributes.append(generatedRule)
             print(list(currentRecordData)[rule] + " not rule :( " + str(generatedRule))
+
+    print("nonRulesAttributes: " + str(nonRulesAttributes))
+    nonRulesAttributes = []
+    # if inputDataLen == len(generatedRules):
+    #     print("Done")
     print('#####################')
 
 for item in generatedRules:
