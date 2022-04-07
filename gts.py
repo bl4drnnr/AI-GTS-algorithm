@@ -1,6 +1,7 @@
 from common import getRule, getTwoMaxValue, H
-from parser import parseInputData, getAllPossibleAttributes
+from parser import parseInputData, getAllPossibleAttributes, getKeyAttribute
 data = parseInputData()
+keyAttribute = getKeyAttribute()
 allPossibleAttributes = getAllPossibleAttributes()
 
 inputDataLength = len(data)
@@ -30,7 +31,7 @@ for x in range(inputDataLength):
 
     # Filter collected data to count values of G, A and H
     for z in data:
-        if z['SOCZEWKI'] == currentRecord['SOCZEWKI']:
+        if z[keyAttribute] == currentRecord[keyAttribute]:
             for iterator in range(4):
                 if currentRecord[list(currentRecord)[iterator]] == z[list(currentRecord)[iterator]]:
                     currentRecordDataFiltered[list(currentRecord)[iterator]] -= 1
@@ -51,8 +52,8 @@ for x in range(inputDataLength):
                 .format(
                     rule=list(currentRecordData)[rule],
                     condition=getRule(list(currentRecordData)[rule], currentRecord[list(currentRecord)[rule]], allPossibleAttributes),
-                    response="SOCZEWKI",
-                    result=getRule("SOCZEWKI", currentRecord["SOCZEWKI"], allPossibleAttributes)
+                    response=keyAttribute,
+                    result=getRule(keyAttribute, currentRecord[keyAttribute], allPossibleAttributes)
                     )})
             print(list(currentRecordData)[rule] + " rule ")
         else:
