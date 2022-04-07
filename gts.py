@@ -1,5 +1,5 @@
 from common import getRule, getTwoMaxValue, H
-from parser import parseInputData, getAllPossibleAttributes, getKeyAttribute
+from parser import parseInputData, getAllPossibleAttributes, getKeyAttribute, getDecisionAttributes
 data = parseInputData()
 keyAttribute = getKeyAttribute()
 allPossibleAttributes = getAllPossibleAttributes()
@@ -9,18 +9,8 @@ generatedRules = []
 
 for x in range(inputDataLength):
     currentRecord = data[x]
-    currentRecordData = {
-        "Wiek": 0,
-        "Wada_wzroku": 0,
-        "Astygmatyzm": 0,
-        "Lzawienie": 0,
-    }
-    currentRecordDataFiltered = {
-        "Wiek": 0,
-        "Wada_wzroku": 0,
-        "Astygmatyzm": 0,
-        "Lzawienie": 0,
-    }
+    currentRecordData = getDecisionAttributes()
+    currentRecordDataFiltered = getDecisionAttributes()
 
     # Collecting information for one current record
     for y in data:

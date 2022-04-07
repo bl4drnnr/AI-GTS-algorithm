@@ -14,6 +14,13 @@ def getKeyAttribute():
     return list(data[0])[-1]
 
 
+def getDecisionAttributes():
+    decisionAttributes = {}
+    for item in list(data[0])[:-1]:
+        decisionAttributes[item] = 0
+    return decisionAttributes
+
+
 def parseInputData():
     # Get all possible attributes and classes
     for item in data:
