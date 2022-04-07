@@ -4,10 +4,10 @@ from common import getRule, getTwoMaxValue, H
 f = open('input.json')
 data = json.load(f)
 
-inputDataLen = len(data['inputdata'])
+inputDataLength = len(data['inputdata'])
 generatedRules = []
 
-for x in range(inputDataLen):
+for x in range(inputDataLength):
     currentRecord = data['inputdata'][x]
     currentRecordData = {
         "wiek": 0,
@@ -46,7 +46,7 @@ for x in range(inputDataLen):
             currentRecordData[list(currentRecordData)[rule]] - \
             currentRecordDataFiltered[list(currentRecordDataFiltered)[rule]]
         quantityOfAllThisTypeRecords = currentRecordData[list(currentRecordData)[rule]]
-        generatedRule = H(quantityOfAllThisTypeRecords, quantityOfRightRecords, inputDataLen)
+        generatedRule = H(quantityOfAllThisTypeRecords, quantityOfRightRecords, inputDataLength)
         if generatedRule == "rule":
             generatedRules.append({x: "IF {condition} THEN {response}"
                 .format(
@@ -59,10 +59,10 @@ for x in range(inputDataLen):
             print(list(currentRecordData)[rule] + " not rule :( " + str(generatedRule))
 
     print("nonRulesAttributes: " + str(nonRulesAttributes))
-    getTwoMaxValue(nonRulesAttributes)
+    twoMaxValues = getTwoMaxValue(nonRulesAttributes)
     nonRulesAttributes = []
     # Iterate one more time input data, but with 1+ conditions
 
-    # if inputDataLen == len(generatedRules):
-    #     print("Done")
+    # if inputDataLength == len(generatedRules):
+    #     print("Stop, all rules has been generated!")
     print('#####################')

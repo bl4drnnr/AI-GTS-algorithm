@@ -26,7 +26,7 @@ def getRule(ruleName, ruleValue):
 
 
 def getTwoMaxValue(obj):
-    print(sorted(obj, key=lambda dct: list(dct.values())[0])[-2:])
+    return sorted(obj, key=lambda dct: list(dct.values())[0])[-2:]
 
 
 def H(Epb, Ep, E):
