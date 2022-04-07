@@ -8,16 +8,16 @@ generatedRules = []
 for x in range(inputDataLength):
     currentRecord = data[x]
     currentRecordData = {
-        "wiek": 0,
-        "wada": 0,
-        "ast": 0,
-        "lz": 0,
+        "Wiek": 0,
+        "Wada_wzroku": 0,
+        "Astygmatyzm": 0,
+        "Lzawienie": 0,
     }
     currentRecordDataFiltered = {
-        "wiek": 0,
-        "wada": 0,
-        "ast": 0,
-        "lz": 0,
+        "Wiek": 0,
+        "Wada_wzroku": 0,
+        "Astygmatyzm": 0,
+        "Lzawienie": 0,
     }
 
     # Collecting information for one current record
@@ -29,7 +29,7 @@ for x in range(inputDataLength):
 
     # Filter collected data to count values of G, A and H
     for z in data:
-        if z['socz'] == currentRecord['socz']:
+        if z['SOCZEWKI'] == currentRecord['SOCZEWKI']:
             for iterator in range(4):
                 if currentRecord[list(currentRecord)[iterator]] == z[list(currentRecord)[iterator]]:
                     currentRecordDataFiltered[list(currentRecord)[iterator]] -= 1
@@ -49,7 +49,7 @@ for x in range(inputDataLength):
             generatedRules.append({x: "IF {condition} THEN {response}"
                 .format(
                     condition=getRule(list(currentRecordData)[rule], currentRecord[list(currentRecord)[rule]]),
-                    response=getRule("socz", currentRecord["socz"]),
+                    response=getRule("SOCZEWKI", currentRecord["SOCZEWKI"]),
                     )})
             print(list(currentRecordData)[rule] + " rule ")
         else:
