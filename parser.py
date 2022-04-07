@@ -1,6 +1,6 @@
 import json
 
-f = open('input.json')
+f = open('input2.json')
 data = json.load(f)
 
 

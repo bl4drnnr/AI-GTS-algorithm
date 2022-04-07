@@ -1,5 +1,6 @@
 import json
 from common import getRule, getTwoMaxValue, H
+from parser import parseInputData
 
 f = open('input.json')
 data = json.load(f)
@@ -60,9 +61,15 @@ for x in range(inputDataLength):
 
     print("nonRulesAttributes: " + str(nonRulesAttributes))
     twoMaxValues = getTwoMaxValue(nonRulesAttributes)
+    print("twoMaxValues: " + str(twoMaxValues))
     nonRulesAttributes = []
     # Iterate one more time input data, but with 1+ conditions
 
     # if inputDataLength == len(generatedRules):
     #     print("Stop, all rules has been generated!")
     print('#####################')
+
+for item in generatedRules:
+    for attr, value in item.items():
+        print("{key} - {value}".format(key=attr+1, value=value))
+    # print('-------------')
