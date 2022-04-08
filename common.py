@@ -3,7 +3,13 @@ def getRule(ruleName, ruleValue, allRules):
 
 
 def getTwoMaxValue(obj):
-    return sorted(obj, key=lambda dct: list(dct.values())[0])[-2:]
+    twoMaxValue = {}
+    sortedNonRuleAttributes = sorted(obj, key=lambda dct: list(dct.values())[0])[-2:]
+    for item in sortedNonRuleAttributes:
+        for attr, value in item.items():
+            twoMaxValue[attr] = value
+    return twoMaxValue
+
 
 
 def H(Epb, Ep, E):
@@ -13,4 +19,7 @@ def H(Epb, Ep, E):
 
 
 def lookForComplicatedRules(currentRecords, twoMaxValues):
+    newRule = {}
+    print('---------------------')
+    print("currentRecords: " + str(currentRecords))
     print("twoMaxValues: " + str(twoMaxValues))
