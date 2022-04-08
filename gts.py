@@ -1,4 +1,4 @@
-from common import getRule, getTwoMaxValue, lookForComplicatedRules, H
+from common import getRule, getTwoMaxValues, lookForComplicatedRules, H
 from parser import parseInputData, getAllPossibleAttributes, getKeyAttribute, getDecisionAttributes
 data = parseInputData()
 keyAttribute = getKeyAttribute()
@@ -53,7 +53,7 @@ for x in range(inputDataLength):
             print(list(currentRecordData)[rule] + " - not rule :( - " + str(generatedRule))
 
     print("nonRulesAttributes: " + str(nonRulesAttributes))
-    twoMaxValues = getTwoMaxValue(nonRulesAttributes)
+    twoMaxValues = getTwoMaxValues(nonRulesAttributes)
     if not ifRuleWasGenerated:
         lookForComplicatedRules(currentRecord, twoMaxValues)
     nonRulesAttributes = []
