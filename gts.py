@@ -14,7 +14,7 @@ for x in range(inputDataLength):
 
     # Collecting information for one current record
     for y in data:
-        for iterator in range(4):
+        for iterator in range(len(list(getDecisionAttributes()))):
             if y[list(currentRecord)[iterator]] == currentRecord[list(currentRecord)[iterator]]:
                 currentRecordData[list(currentRecord)[iterator]] += 1
                 currentRecordDataFiltered[list(currentRecord)[iterator]] += 1
@@ -22,7 +22,7 @@ for x in range(inputDataLength):
     # Filter collected data to count values of G, A and H
     for z in data:
         if z[keyAttribute] == currentRecord[keyAttribute]:
-            for iterator in range(4):
+            for iterator in range(len(list(getDecisionAttributes()))):
                 if currentRecord[list(currentRecord)[iterator]] == z[list(currentRecord)[iterator]]:
                     currentRecordDataFiltered[list(currentRecord)[iterator]] -= 1
 
@@ -31,7 +31,7 @@ for x in range(inputDataLength):
     print("currentRecordDataFiltered: " + str(currentRecordDataFiltered))
     print("currentRecord: " + str(currentRecord))
     nonRulesAttributes = []
-    for rule in range(4):
+    for rule in range(len(list(getDecisionAttributes()))):
         quantityOfRightRecords = \
             currentRecordData[list(currentRecordData)[rule]] - \
             currentRecordDataFiltered[list(currentRecordDataFiltered)[rule]]
@@ -45,10 +45,10 @@ for x in range(inputDataLength):
                     response=keyAttribute,
                     result=getRule(keyAttribute, currentRecord[keyAttribute], allPossibleAttributes)
                     )})
-            print(list(currentRecordData)[rule] + " rule ")
+            print(list(currentRecordData)[rule] + " - rule")
         else:
             nonRulesAttributes.append({list(currentRecordData)[rule]: generatedRule})
-            print(list(currentRecordData)[rule] + " not rule :( " + str(generatedRule))
+            print(list(currentRecordData)[rule] + " - not rule :( - " + str(generatedRule))
 
     print("nonRulesAttributes: " + str(nonRulesAttributes))
     twoMaxValues = getTwoMaxValue(nonRulesAttributes)
