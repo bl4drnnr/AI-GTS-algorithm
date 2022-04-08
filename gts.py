@@ -1,4 +1,4 @@
-from common import getRule, getTwoMaxValue, H
+from common import getRule, getTwoMaxValue, lookForComplicatedRules, H
 from parser import parseInputData, getAllPossibleAttributes, getKeyAttribute, getDecisionAttributes
 data = parseInputData()
 keyAttribute = getKeyAttribute()
@@ -31,6 +31,7 @@ for x in range(inputDataLength):
     print("currentRecordDataFiltered: " + str(currentRecordDataFiltered))
     print("currentRecord: " + str(currentRecord))
     nonRulesAttributes = []
+    ifRuleWasGenerated = False
     for rule in range(len(list(getDecisionAttributes()))):
         quantityOfRightRecords = \
             currentRecordData[list(currentRecordData)[rule]] - \
@@ -45,6 +46,7 @@ for x in range(inputDataLength):
                     response=keyAttribute,
                     result=getRule(keyAttribute, currentRecord[keyAttribute], allPossibleAttributes)
                     )})
+            ifRuleWasGenerated = True
             print(list(currentRecordData)[rule] + " - rule")
         else:
             nonRulesAttributes.append({list(currentRecordData)[rule]: generatedRule})
@@ -52,7 +54,8 @@ for x in range(inputDataLength):
 
     print("nonRulesAttributes: " + str(nonRulesAttributes))
     twoMaxValues = getTwoMaxValue(nonRulesAttributes)
-    print("twoMaxValues: " + str(twoMaxValues))
+    if not ifRuleWasGenerated:
+        lookForComplicatedRules(currentRecord, twoMaxValues)
     nonRulesAttributes = []
     # Iterate one more time input data, but with 1+ conditions
     # Recount my calcs, because it looks like something went wrong
