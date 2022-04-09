@@ -30,7 +30,6 @@ def lookForComplicatedRules(currentRecord, maxValues):
     print("maxValues: " + str(maxValues))
     newRule = {}
     newRuleRecords = []
-    outputData = []
     for attr, value in maxValues.items():
         newRule[attr] = currentRecord[attr]
     print("newRule: " + str(newRule))
@@ -43,8 +42,7 @@ def lookForComplicatedRules(currentRecord, maxValues):
         if quantityOfMatchAttributes == len(list(newRule)):
             newRuleRecords.append({i+1: record})
 
-    outputData.append(newRuleRecords)
-    outputData.append(newRule)
+    outputData = [newRuleRecords, newRule]
     return outputData
 
 
@@ -59,8 +57,8 @@ def generateNewRule(GENERATED_RULES, currentRecord, maxValues, rulesAttributes, 
             newRule = newRule + str(getRule(attr, value, ALL_POSSIBLE_ATTRIBUTES)) + " AND "
 
     checkForRule = []
-    for t in newRecordsWithComplicatedRules[0]:
-        for attr, value in t.items():
+    for record in newRecordsWithComplicatedRules[0]:
+        for attr, value in record.items():
             checkForRule.append(value[KEY_ATTRIBUTE])
     print("checkForRule: " + str(checkForRule))
     print("checkForRule most common: " + str(Counter(checkForRule).most_common(1)))
@@ -69,14 +67,14 @@ def generateNewRule(GENERATED_RULES, currentRecord, maxValues, rulesAttributes, 
             response=KEY_ATTRIBUTE,
             result=getRule(KEY_ATTRIBUTE, Counter(checkForRule).most_common(1)[0][0], ALL_POSSIBLE_ATTRIBUTES)
         )
-        for t in newRecordsWithComplicatedRules[0]:
+        for record in newRecordsWithComplicatedRules[0]:
             pushRule = True
             for rule in GENERATED_RULES:
-                if rule['index'] == list(t)[0]:
+                if rule['index'] == list(record)[0]:
                     pushRule = False
             # @TODO Something with this check
             if pushRule:
-                GENERATED_RULES.append({'index': list(t)[0], 'rule': newRule})
+                GENERATED_RULES.append({'index': list(record)[0], 'rule': newRule})
     else:
         newMaxValues = getXMaxValues(rulesAttributes, ITERATOR)
         ITERATOR += 1
