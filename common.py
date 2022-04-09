@@ -29,8 +29,10 @@ def lookForComplicatedRules(currentRecord, twoMaxValues):
         newRule[attr] = currentRecord[attr]
     print("newRule: " + str(newRule))
     print('---------------------')
-    # for x in data:
-    #     for attr, value in x.items():
-    #         if newRule[attr] is not None:
-    #             if x[attr] == newRule[attr]:
-    #                 print("record for new rule?: " + x)
+    for record in data:
+        quantityOfMatchAttributes = 0
+        for attr, value in newRule.items():
+            if record[attr] == newRule[attr]:
+                quantityOfMatchAttributes += 1
+        if quantityOfMatchAttributes == len(list(newRule)):
+            print("new record?: " + str(record))

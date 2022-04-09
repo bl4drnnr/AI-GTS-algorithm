@@ -31,7 +31,7 @@ for x in range(inputDataLength):
     print("currentRecordDataFiltered: " + str(currentRecordDataFiltered))
     print("currentRecord: " + str(currentRecord))
     nonRulesAttributes = []
-    ifRuleWasGenerated = False
+    ruleWasGenerated = False
     for rule in range(len(list(getDecisionAttributes()))):
         quantityOfRightRecords = \
             currentRecordData[list(currentRecordData)[rule]] - \
@@ -46,7 +46,7 @@ for x in range(inputDataLength):
                     response=keyAttribute,
                     result=getRule(keyAttribute, currentRecord[keyAttribute], allPossibleAttributes)
                     )})
-            ifRuleWasGenerated = True
+            ruleWasGenerated = True
             print(list(currentRecordData)[rule] + " - rule")
         else:
             nonRulesAttributes.append({list(currentRecordData)[rule]: generatedRule})
@@ -54,7 +54,7 @@ for x in range(inputDataLength):
 
     print("nonRulesAttributes: " + str(nonRulesAttributes))
     twoMaxValues = getTwoMaxValues(nonRulesAttributes)
-    if not ifRuleWasGenerated:
+    if not ruleWasGenerated:
         lookForComplicatedRules(currentRecord, twoMaxValues)
     nonRulesAttributes = []
     # Iterate one more time input data, but with 1+ conditions
