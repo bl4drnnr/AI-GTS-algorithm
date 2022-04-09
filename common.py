@@ -74,15 +74,13 @@ def generateNewRule(GENERATED_RULES, currentRecord, twoMaxValues, nonRulesAttrib
             for rule in GENERATED_RULES:
                 if rule['index'] == list(t)[0]:
                     pushRule = False
-            # Something with this check
+            # @TODO Something with this check
             if pushRule:
                 GENERATED_RULES.append({'index': list(t)[0], 'rule': newRule})
     else:
         newMaxValues = getXMaxValues(nonRulesAttributes, ITERATOR)
         ITERATOR += 1
-        # From here I should continue
-        generateNewRule(GENERATED_RULES, currentRecord, newMaxValues, nonRulesAttributes)
-        print("Seems impossible to generate rule with this DATA!")
+        generateNewRule(GENERATED_RULES, currentRecord, newMaxValues, nonRulesAttributes, ITERATOR)
 
     outputData = [GENERATED_RULES, ITERATOR]
     return outputData
