@@ -1,5 +1,4 @@
-from collections import Counter
-from common import getRule, getXMaxValues, lookForComplicatedRules, generateNewRule, H
+from common import getRule, getXMaxValues, generateNewRule, H
 from parser import parseInputData, getAllPossibleAttributes, getKeyAttribute, getDecisionAttributes
 data = parseInputData()
 keyAttribute = getKeyAttribute()
