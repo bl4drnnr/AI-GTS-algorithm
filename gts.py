@@ -13,17 +13,17 @@ for x in range(INPUT_DATA_LENGTH):
     currentRecordDataFiltered = getDecisionAttributes()
 
     # Collecting information for one current record
-    for y in DATA:
+    for record in DATA:
         for ITERATOR in range(len(list(getDecisionAttributes()))):
-            if y[list(currentRecord)[ITERATOR]] == currentRecord[list(currentRecord)[ITERATOR]]:
+            if record[list(currentRecord)[ITERATOR]] == currentRecord[list(currentRecord)[ITERATOR]]:
                 currentRecordData[list(currentRecord)[ITERATOR]] += 1
                 currentRecordDataFiltered[list(currentRecord)[ITERATOR]] += 1
 
-    # Filter collected DATA to count values of G, A and H
-    for z in DATA:
-        if z[KEY_ATTRIBUTE] == currentRecord[KEY_ATTRIBUTE]:
+    # Filter collected data to count values of G, A and H
+    for record in DATA:
+        if record[KEY_ATTRIBUTE] == currentRecord[KEY_ATTRIBUTE]:
             for ITERATOR in range(len(list(getDecisionAttributes()))):
-                if currentRecord[list(currentRecord)[ITERATOR]] == z[list(currentRecord)[ITERATOR]]:
+                if currentRecord[list(currentRecord)[ITERATOR]] == record[list(currentRecord)[ITERATOR]]:
                     currentRecordDataFiltered[list(currentRecord)[ITERATOR]] -= 1
 
     # Check if there is already generated rule

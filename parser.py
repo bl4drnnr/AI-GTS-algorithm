@@ -20,15 +20,15 @@ def getKeyAttribute():
 
 def getDecisionAttributes():
     decisionAttributes = {}
-    for item in list(DATA[0])[:-1]:
-        decisionAttributes[item] = 0
+    for record in list(DATA[0])[:-1]:
+        decisionAttributes[record] = 0
     return decisionAttributes
 
 
 def parseInputData():
     # Get all possible attributes and classes
-    for item in DATA:
-        for attr, value in item.items():
+    for record in DATA:
+        for attr, value in record.items():
             if ALL_POSSIBLE_ATTRIBUTES.get(attr) is None:
                 ALL_POSSIBLE_ATTRIBUTES[attr] = {value: 0}
             else:
@@ -41,7 +41,7 @@ def parseInputData():
             ALL_POSSIBLE_ATTRIBUTES[param][attr] += i
             i += 1
     # Parse input DATA
-    for item in DATA:
-        for attr, value in item.items():
-            item[attr] = ALL_POSSIBLE_ATTRIBUTES[attr][value]
+    for record in DATA:
+        for attr, value in record.items():
+            record[attr] = ALL_POSSIBLE_ATTRIBUTES[attr][value]
     return DATA
