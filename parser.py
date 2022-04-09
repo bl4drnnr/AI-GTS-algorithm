@@ -6,6 +6,10 @@ data = data['inputdata']
 allPossibleAttributes = {}
 
 
+def getData():
+    return data
+
+
 def getAllPossibleAttributes():
     return allPossibleAttributes
 
@@ -21,7 +25,6 @@ def getDecisionAttributes():
     return decisionAttributes
 
 
-# @TODO check allPossibleAttributes
 def parseInputData():
     # Get all possible attributes and classes
     for item in data:

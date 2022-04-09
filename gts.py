@@ -3,7 +3,6 @@ from parser import parseInputData, getAllPossibleAttributes, getKeyAttribute, ge
 data = parseInputData()
 keyAttribute = getKeyAttribute()
 allPossibleAttributes = getAllPossibleAttributes()
-print("allPossibleAttributes: " + str(allPossibleAttributes))
 
 inputDataLength = len(data)
 generatedRules = []
@@ -12,7 +11,6 @@ for x in range(inputDataLength):
     currentRecord = data[x]
     currentRecordData = getDecisionAttributes()
     currentRecordDataFiltered = getDecisionAttributes()
-    print("currentRecord start: " + str(currentRecord))
 
     # Collecting information for one current record
     for y in data:

@@ -1,5 +1,5 @@
-from parser import parseInputData
-data = parseInputData()
+from parser import getData
+data = getData()
 
 
 def getRule(ruleName, ruleValue, allRules):
