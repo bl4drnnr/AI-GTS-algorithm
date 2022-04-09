@@ -40,8 +40,9 @@ for x in range(inputDataLength):
         quantityOfAllThisTypeRecords = currentRecordData[list(currentRecordData)[rule]]
         generatedRule = H(quantityOfAllThisTypeRecords, quantityOfRightRecords, inputDataLength)
         if generatedRule == "rule":
-            # @TODO Fix index and push method just to make it easy then to sort and fix
-            generatedRules.append({x: "IF {rule} = {condition} THEN {response} = {result}"
+            generatedRules.append({
+                'index': x,
+                'rule': "IF {rule} = {condition} THEN {response} = {result}"
                 .format(
                     rule=list(currentRecordData)[rule],
                     condition=getRule(list(currentRecordData)[rule], currentRecord[list(currentRecord)[rule]], allPossibleAttributes),
@@ -69,7 +70,6 @@ for x in range(inputDataLength):
 
         checkForRule = []
         for t in newRecordsWithComplicatedRules[0]:
-            print(t)
             for attr, value in t.items():
                 checkForRule.append(value[keyAttribute])
         print("checkForRule: " + str(checkForRule))
@@ -78,18 +78,24 @@ for x in range(inputDataLength):
             newRule += " THEN {response} = {result}".format(
                 response=keyAttribute, result=getRule(keyAttribute, Counter(checkForRule).most_common(1)[0][0], allPossibleAttributes)
             )
+            for t in newRecordsWithComplicatedRules[0]:
+                pushRule = True
+                for rule in generatedRules:
+                    if rule['index'] == list(t)[0]:
+                        pushRule = False
+                if pushRule:
+                    generatedRules.append({
+                        'index': list(t)[0],
+                        'rule': newRule
+                    })
+            # Push here
         else:
             print("Seems impossible to generate rule with this data!")
         print("newRule: " + str(newRule))
     nonRulesAttributes = []
-    # Iterate one more time input data, but with 1+ conditions
     # Recount my calcs, because it looks like something went wrong
-
-    # if inputDataLength == len(generatedRules):
-    #     print("Stop, all rules has been generated!")
     print('#####################')
 
 
 for item in generatedRules:
-    for attr, value in item.items():
-        print("{key} - {value}".format(key=attr+1, value=value))
+    print('{index} - {rule}'.format(index=item['index'], rule=item['rule']))
