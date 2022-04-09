@@ -1,74 +1,80 @@
 from common import getRule, getXMaxValues, generateNewRule, H
 from parser import parseInputData, getAllPossibleAttributes, getKeyAttribute, getDecisionAttributes
-data = parseInputData()
-keyAttribute = getKeyAttribute()
-allPossibleAttributes = getAllPossibleAttributes()
-iterator = 2
+DATA = parseInputData()
+KEY_ATTRIBUTE = getKeyAttribute()
+ALL_POSSIBLE_ATTRIBUTES = getAllPossibleAttributes()
+ITERATOR = 2
+INPUT_DATA_LENGTH = len(DATA)
+GENERATED_RULES = []
 
-inputDataLength = len(data)
-generatedRules = []
-
-for x in range(inputDataLength):
-    currentRecord = data[x]
+for x in range(INPUT_DATA_LENGTH):
+    currentRecord = DATA[x]
     currentRecordData = getDecisionAttributes()
     currentRecordDataFiltered = getDecisionAttributes()
 
     # Collecting information for one current record
-    for y in data:
-        for iterator in range(len(list(getDecisionAttributes()))):
-            if y[list(currentRecord)[iterator]] == currentRecord[list(currentRecord)[iterator]]:
-                currentRecordData[list(currentRecord)[iterator]] += 1
-                currentRecordDataFiltered[list(currentRecord)[iterator]] += 1
+    for record in DATA:
+        for ITERATOR in range(len(list(getDecisionAttributes()))):
+            if record[list(currentRecord)[ITERATOR]] == currentRecord[list(currentRecord)[ITERATOR]]:
+                currentRecordData[list(currentRecord)[ITERATOR]] += 1
+                currentRecordDataFiltered[list(currentRecord)[ITERATOR]] += 1
 
     # Filter collected data to count values of G, A and H
-    for z in data:
-        if z[keyAttribute] == currentRecord[keyAttribute]:
-            for iterator in range(len(list(getDecisionAttributes()))):
-                if currentRecord[list(currentRecord)[iterator]] == z[list(currentRecord)[iterator]]:
-                    currentRecordDataFiltered[list(currentRecord)[iterator]] -= 1
+    for record in DATA:
+        if record[KEY_ATTRIBUTE] == currentRecord[KEY_ATTRIBUTE]:
+            for ITERATOR in range(len(list(getDecisionAttributes()))):
+                if currentRecord[list(currentRecord)[ITERATOR]] == record[list(currentRecord)[ITERATOR]]:
+                    currentRecordDataFiltered[list(currentRecord)[ITERATOR]] -= 1
 
     # Check if there is already generated rule
     print("currentRecordData: " + str(currentRecordData))
     print("currentRecordDataFiltered: " + str(currentRecordDataFiltered))
     print("currentRecord: " + str(currentRecord))
-    nonRulesAttributes = []
-    ruleWasGenerated = False
+    rulesAttributes = []
+    ruleWasNotGenerated = True
+    # @TODO Where is 5, 12, 19 index? (IF Lzawienie = zmniejszone THEN SOCZEWKI = brak)
     for rule in range(len(list(getDecisionAttributes()))):
         quantityOfRightRecords = \
             currentRecordData[list(currentRecordData)[rule]] - \
             currentRecordDataFiltered[list(currentRecordDataFiltered)[rule]]
         quantityOfAllThisTypeRecords = currentRecordData[list(currentRecordData)[rule]]
-        generatedRule = H(quantityOfAllThisTypeRecords, quantityOfRightRecords, inputDataLength)
+        generatedRule = H(quantityOfAllThisTypeRecords, quantityOfRightRecords, INPUT_DATA_LENGTH)
         if generatedRule == "rule":
-            generatedRules.append({
-                'index': x,
-                'rule': "IF {rule} = {condition} THEN {response} = {result}"
-                .format(
-                    rule=list(currentRecordData)[rule],
-                    condition=getRule(list(currentRecordData)[rule], currentRecord[list(currentRecord)[rule]], allPossibleAttributes),
-                    response=keyAttribute,
-                    result=getRule(keyAttribute, currentRecord[keyAttribute], allPossibleAttributes)
-                    )})
-            ruleWasGenerated = True
+            pushSimpleRule = True
+            for generated_rule in GENERATED_RULES:
+                if generated_rule['index'] == x:
+                    pushSimpleRule = False
+                    print(str(generated_rule) + " " + str(x))
+            if pushSimpleRule:
+                GENERATED_RULES.append({
+                    'index': x,
+                    'rule': "IF {rule} = {condition} THEN {response} = {result}"
+                    .format(
+                        rule=list(currentRecordData)[rule],
+                        condition=getRule(list(currentRecordData)[rule], currentRecord[list(currentRecord)[rule]], ALL_POSSIBLE_ATTRIBUTES),
+                        response=KEY_ATTRIBUTE,
+                        result=getRule(KEY_ATTRIBUTE, currentRecord[KEY_ATTRIBUTE], ALL_POSSIBLE_ATTRIBUTES)
+                        )})
+            ruleWasNotGenerated = False
             print(list(currentRecordData)[rule] + " - rule")
         else:
-            nonRulesAttributes.append({list(currentRecordData)[rule]: generatedRule})
+            rulesAttributes.append({list(currentRecordData)[rule]: generatedRule})
             print(list(currentRecordData)[rule] + " - not rule :( - " + str(generatedRule))
 
-    print("nonRulesAttributes: " + str(nonRulesAttributes))
-    twoMaxValues = getXMaxValues(nonRulesAttributes, iterator)
+    print("rulesAttributes: " + str(rulesAttributes))
+    maxValues = getXMaxValues(rulesAttributes, ITERATOR)
     # Generate complicated rule
-    if not ruleWasGenerated:
-        generatedRules = generateNewRule(generatedRules, currentRecord, twoMaxValues, nonRulesAttributes, iterator)
-        generatedRules = generatedRules[0]
-        iterator = generatedRules[1]
-    nonRulesAttributes = []
+    if ruleWasNotGenerated:
+        GENERATED_RULES = generateNewRule(GENERATED_RULES, currentRecord, maxValues, rulesAttributes, ITERATOR)
+        GENERATED_RULES = GENERATED_RULES[0]
+        ITERATOR = GENERATED_RULES[1]
+    rulesAttributes = []
     # Recount my calcs, because it looks like something went wrong
     print('#####################')
 
 
-generatedRules = sorted(generatedRules, key=lambda ruleSort: ruleSort['index'])
+GENERATED_RULES = sorted(GENERATED_RULES, key=lambda ruleSort: ruleSort['index'])
 
 
-for item in generatedRules:
+for item in GENERATED_RULES:
     print('{index} - {rule}'.format(index=item['index'], rule=item['rule']))
