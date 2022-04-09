@@ -56,10 +56,10 @@ for x in range(inputDataLength):
 
     print("nonRulesAttributes: " + str(nonRulesAttributes))
     twoMaxValues = getTwoMaxValues(nonRulesAttributes)
+    # Generate complicated rule
     if not ruleWasGenerated:
         newRule = "IF "
         newRecordsWithComplicatedRules = lookForComplicatedRules(currentRecord, twoMaxValues)
-        # Generate complicated rule
         for attr, value in newRecordsWithComplicatedRules[1].items():
             newRule = newRule + str(attr) + " = "
             if list(newRecordsWithComplicatedRules[1])[-1] == attr:
@@ -73,9 +73,13 @@ for x in range(inputDataLength):
             for attr, value in t.items():
                 checkForRule.append(value[keyAttribute])
         print("checkForRule: " + str(checkForRule))
-        newRule += " THEN {response} = {result}".format(
-            response=keyAttribute, result=getRule(keyAttribute, Counter(checkForRule).most_common(1)[0][0], allPossibleAttributes)
-        )
+        print("checkForRule most common: " + str(Counter(checkForRule).most_common(1)))
+        if Counter(checkForRule).most_common(1)[0][1] == len(checkForRule):
+            newRule += " THEN {response} = {result}".format(
+                response=keyAttribute, result=getRule(keyAttribute, Counter(checkForRule).most_common(1)[0][0], allPossibleAttributes)
+            )
+        else:
+            print("Seems impossible to generate rule with this data!")
         print("newRule: " + str(newRule))
     nonRulesAttributes = []
     # Iterate one more time input data, but with 1+ conditions
