@@ -58,7 +58,7 @@ for x in range(inputDataLength):
     twoMaxValues = getXMaxValues(nonRulesAttributes, 2)
     # Generate complicated rule
     if not ruleWasGenerated:
-        generatedRules = generateNewRule(generatedRules, currentRecord, twoMaxValues)
+        generatedRules = generateNewRule(generatedRules, currentRecord, twoMaxValues, nonRulesAttributes)
     nonRulesAttributes = []
     # Recount my calcs, because it looks like something went wrong
     print('#####################')
