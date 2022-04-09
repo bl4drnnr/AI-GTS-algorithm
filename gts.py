@@ -1,5 +1,5 @@
 from collections import Counter
-from common import getRule, getTwoMaxValues, lookForComplicatedRules, generateNewRule, H
+from common import getRule, getXMaxValues, lookForComplicatedRules, generateNewRule, H
 from parser import parseInputData, getAllPossibleAttributes, getKeyAttribute, getDecisionAttributes
 data = parseInputData()
 keyAttribute = getKeyAttribute()
@@ -56,7 +56,7 @@ for x in range(inputDataLength):
             print(list(currentRecordData)[rule] + " - not rule :( - " + str(generatedRule))
 
     print("nonRulesAttributes: " + str(nonRulesAttributes))
-    twoMaxValues = getTwoMaxValues(nonRulesAttributes)
+    twoMaxValues = getXMaxValues(nonRulesAttributes, 2)
     # Generate complicated rule
     if not ruleWasGenerated:
         generatedRules = generateNewRule(generatedRules, currentRecord, twoMaxValues)

@@ -9,9 +9,9 @@ def getRule(ruleName, ruleValue, allRules):
     return list(allRules[ruleName].keys())[list(allRules[ruleName].values()).index(ruleValue)]
 
 
-def getTwoMaxValues(obj):
+def getXMaxValues(obj, x):
     twoMaxValue = {}
-    sortedNonRuleAttributes = sorted(obj, key=lambda dct: list(dct.values())[0])[-2:]
+    sortedNonRuleAttributes = sorted(obj, key=lambda dct: list(dct.values())[0])[-x:]
     for item in sortedNonRuleAttributes:
         for attr, value in item.items():
             twoMaxValue[attr] = value
