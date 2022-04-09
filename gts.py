@@ -58,7 +58,6 @@ for x in range(inputDataLength):
     if not ruleWasGenerated:
         newRule = "IF "
         newRecordsWithComplicatedRules = lookForComplicatedRules(currentRecord, twoMaxValues)
-        print("newRecordsWithComplicatedRules: " + str(newRecordsWithComplicatedRules))
         # Generate complicated rule
         for attr, value in newRecordsWithComplicatedRules[1].items():
             newRule = newRule + str(attr) + " = "
