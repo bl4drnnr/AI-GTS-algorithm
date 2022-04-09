@@ -1,3 +1,4 @@
+from collections import Counter
 from common import getRule, getTwoMaxValues, lookForComplicatedRules, H
 from parser import parseInputData, getAllPossibleAttributes, getKeyAttribute, getDecisionAttributes
 data = parseInputData()
@@ -69,11 +70,13 @@ for x in range(inputDataLength):
         checkForRule = []
         for t in newRecordsWithComplicatedRules[0]:
             print(t)
-            
             for attr, value in t.items():
                 checkForRule.append(value[keyAttribute])
-        print("newRule: " + str(newRule))
         print("checkForRule: " + str(checkForRule))
+        newRule += " THEN {response} = {result}".format(
+            response=keyAttribute, result=getRule(keyAttribute, Counter(checkForRule).most_common(1)[0][0], allPossibleAttributes)
+        )
+        print("newRule: " + str(newRule))
     nonRulesAttributes = []
     # Iterate one more time input data, but with 1+ conditions
     # Recount my calcs, because it looks like something went wrong
