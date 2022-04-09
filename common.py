@@ -25,14 +25,17 @@ def lookForComplicatedRules(currentRecord, twoMaxValues):
     print("currentRecords: " + str(currentRecord))
     print("twoMaxValues: " + str(twoMaxValues))
     newRule = {}
+    newRuleRecords = []
     for attr, value in twoMaxValues.items():
         newRule[attr] = currentRecord[attr]
     print("newRule: " + str(newRule))
     print('---------------------')
-    for record in data:
+    for i, record in enumerate(data):
         quantityOfMatchAttributes = 0
         for attr, value in newRule.items():
             if record[attr] == newRule[attr]:
                 quantityOfMatchAttributes += 1
         if quantityOfMatchAttributes == len(list(newRule)):
-            print("new record?: " + str(record))
+            newRuleRecords.append({i: record})
+
+    return newRuleRecords

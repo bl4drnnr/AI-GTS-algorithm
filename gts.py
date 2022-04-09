@@ -55,7 +55,11 @@ for x in range(inputDataLength):
     print("nonRulesAttributes: " + str(nonRulesAttributes))
     twoMaxValues = getTwoMaxValues(nonRulesAttributes)
     if not ruleWasGenerated:
-        lookForComplicatedRules(currentRecord, twoMaxValues)
+        newRecordsWithComplicatedRules = lookForComplicatedRules(currentRecord, twoMaxValues)
+        for t in newRecordsWithComplicatedRules:
+            print(t)
+        # for newRecord in newRecordsWithComplicatedRules:
+        #     generatedRules.append({x: "test"})
     nonRulesAttributes = []
     # Iterate one more time input data, but with 1+ conditions
     # Recount my calcs, because it looks like something went wrong
