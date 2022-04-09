@@ -39,6 +39,7 @@ for x in range(inputDataLength):
         quantityOfAllThisTypeRecords = currentRecordData[list(currentRecordData)[rule]]
         generatedRule = H(quantityOfAllThisTypeRecords, quantityOfRightRecords, inputDataLength)
         if generatedRule == "rule":
+            # Fix index and push method just to make it easy then to sort and fix
             generatedRules.append({x: "IF {rule} = {condition} THEN {response} = {result}"
                 .format(
                     rule=list(currentRecordData)[rule],
@@ -85,4 +86,3 @@ for x in range(inputDataLength):
 for item in generatedRules:
     for attr, value in item.items():
         print("{key} - {value}".format(key=attr+1, value=value))
-    # print('-------------')
