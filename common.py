@@ -72,7 +72,6 @@ def generateNewRule(GENERATED_RULES, currentRecord, maxValues, rulesAttributes, 
             for rule in GENERATED_RULES:
                 if rule['index'] == list(record)[0]:
                     pushRule = False
-            # @TODO Something with this check
             if pushRule:
                 GENERATED_RULES.append({'index': list(record)[0], 'rule': newRule})
     else:

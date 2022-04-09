@@ -39,15 +39,22 @@ for x in range(INPUT_DATA_LENGTH):
         quantityOfAllThisTypeRecords = currentRecordData[list(currentRecordData)[rule]]
         generatedRule = H(quantityOfAllThisTypeRecords, quantityOfRightRecords, INPUT_DATA_LENGTH)
         if generatedRule == "rule":
-            GENERATED_RULES.append({
-                'index': x,
-                'rule': "IF {rule} = {condition} THEN {response} = {result}"
-                .format(
-                    rule=list(currentRecordData)[rule],
-                    condition=getRule(list(currentRecordData)[rule], currentRecord[list(currentRecord)[rule]], ALL_POSSIBLE_ATTRIBUTES),
-                    response=KEY_ATTRIBUTE,
-                    result=getRule(KEY_ATTRIBUTE, currentRecord[KEY_ATTRIBUTE], ALL_POSSIBLE_ATTRIBUTES)
-                    )})
+            # Problem with check could be here
+            pushSimpleRule = True
+            for generated_rule in GENERATED_RULES:
+                if generated_rule['index'] == x:
+                    pushSimpleRule = False
+                    print(str(generated_rule) + " " + str(x))
+            if pushSimpleRule:
+                GENERATED_RULES.append({
+                    'index': x,
+                    'rule': "IF {rule} = {condition} THEN {response} = {result}"
+                    .format(
+                        rule=list(currentRecordData)[rule],
+                        condition=getRule(list(currentRecordData)[rule], currentRecord[list(currentRecord)[rule]], ALL_POSSIBLE_ATTRIBUTES),
+                        response=KEY_ATTRIBUTE,
+                        result=getRule(KEY_ATTRIBUTE, currentRecord[KEY_ATTRIBUTE], ALL_POSSIBLE_ATTRIBUTES)
+                        )})
             ruleWasNotGenerated = False
             print(list(currentRecordData)[rule] + " - rule")
         else:
