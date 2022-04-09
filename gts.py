@@ -33,6 +33,7 @@ for x in range(INPUT_DATA_LENGTH):
     rulesAttributes = []
     ruleWasNotGenerated = True
     # @TODO Where is 5, 12, 19 index? (IF Lzawienie = zmniejszone THEN SOCZEWKI = brak)
+    # It could be problem with indexes
     for rule in range(len(list(getDecisionAttributes()))):
         quantityOfRightRecords = \
             currentRecordData[list(currentRecordData)[rule]] - \
