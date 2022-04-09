@@ -22,10 +22,12 @@ def H(Epb, Ep, E):
 
 
 def lookForComplicatedRules(currentRecord, twoMaxValues):
+    print('---------------------')
     print("currentRecords: " + str(currentRecord))
     print("twoMaxValues: " + str(twoMaxValues))
     newRule = {}
     newRuleRecords = []
+    outputData = []
     for attr, value in twoMaxValues.items():
         newRule[attr] = currentRecord[attr]
     print("newRule: " + str(newRule))
@@ -38,4 +40,6 @@ def lookForComplicatedRules(currentRecord, twoMaxValues):
         if quantityOfMatchAttributes == len(list(newRule)):
             newRuleRecords.append({i: record})
 
-    return newRuleRecords
+    outputData.append(newRuleRecords)
+    outputData.append(newRule)
+    return outputData
