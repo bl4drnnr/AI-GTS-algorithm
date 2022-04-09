@@ -97,5 +97,8 @@ for x in range(inputDataLength):
     print('#####################')
 
 
+generatedRules = sorted(generatedRules, key=lambda ruleSort: ruleSort['index'])
+
+
 for item in generatedRules:
     print('{index} - {rule}'.format(index=item['index'], rule=item['rule']))
