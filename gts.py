@@ -32,6 +32,7 @@ for x in range(INPUT_DATA_LENGTH):
     print("currentRecord: " + str(currentRecord))
     rulesAttributes = []
     ruleWasNotGenerated = True
+    # @TODO Where is 5, 12, 19 index? (IF Lzawienie = zmniejszone THEN SOCZEWKI = brak)
     for rule in range(len(list(getDecisionAttributes()))):
         quantityOfRightRecords = \
             currentRecordData[list(currentRecordData)[rule]] - \
@@ -39,7 +40,6 @@ for x in range(INPUT_DATA_LENGTH):
         quantityOfAllThisTypeRecords = currentRecordData[list(currentRecordData)[rule]]
         generatedRule = H(quantityOfAllThisTypeRecords, quantityOfRightRecords, INPUT_DATA_LENGTH)
         if generatedRule == "rule":
-            # Problem with check could be here
             pushSimpleRule = True
             for generated_rule in GENERATED_RULES:
                 if generated_rule['index'] == x:
