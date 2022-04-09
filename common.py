@@ -10,12 +10,12 @@ def getRule(ruleName, ruleValue, allRules):
 
 
 def getXMaxValues(obj, x):
-    twoMaxValue = {}
-    sortedNonRuleAttributes = sorted(obj, key=lambda dct: list(dct.values())[0])[-x:]
-    for item in sortedNonRuleAttributes:
-        for attr, value in item.items():
-            twoMaxValue[attr] = value
-    return twoMaxValue
+    maxValues = {}
+    sortedRuleAttributes = sorted(obj, key=lambda dct: list(dct.values())[0])[-x:]
+    for rule in sortedRuleAttributes:
+        for attr, value in rule.items():
+            maxValues[attr] = value
+    return maxValues
 
 
 def H(Epb, Ep, E):
@@ -24,14 +24,14 @@ def H(Epb, Ep, E):
     return format((Epb / E) + (Ep / Epb) ** 0.5, ".3f")
 
 
-def lookForComplicatedRules(currentRecord, twoMaxValues):
+def lookForComplicatedRules(currentRecord, maxValues):
     print('---------------------')
     print("currentRecords: " + str(currentRecord))
-    print("twoMaxValues: " + str(twoMaxValues))
+    print("maxValues: " + str(maxValues))
     newRule = {}
     newRuleRecords = []
     outputData = []
-    for attr, value in twoMaxValues.items():
+    for attr, value in maxValues.items():
         newRule[attr] = currentRecord[attr]
     print("newRule: " + str(newRule))
     print('---------------------')
@@ -48,9 +48,9 @@ def lookForComplicatedRules(currentRecord, twoMaxValues):
     return outputData
 
 
-def generateNewRule(GENERATED_RULES, currentRecord, twoMaxValues, rulesAttributes, ITERATOR):
+def generateNewRule(GENERATED_RULES, currentRecord, maxValues, rulesAttributes, ITERATOR):
     newRule = "IF "
-    newRecordsWithComplicatedRules = lookForComplicatedRules(currentRecord, twoMaxValues)
+    newRecordsWithComplicatedRules = lookForComplicatedRules(currentRecord, maxValues)
     for attr, value in newRecordsWithComplicatedRules[1].items():
         newRule = newRule + str(attr) + " = "
         if list(newRecordsWithComplicatedRules[1])[-1] == attr:

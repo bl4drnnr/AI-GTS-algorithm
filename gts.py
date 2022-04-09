@@ -55,10 +55,10 @@ for x in range(INPUT_DATA_LENGTH):
             print(list(currentRecordData)[rule] + " - not rule :( - " + str(generatedRule))
 
     print("rulesAttributes: " + str(rulesAttributes))
-    twoMaxValues = getXMaxValues(rulesAttributes, ITERATOR)
+    maxValues = getXMaxValues(rulesAttributes, ITERATOR)
     # Generate complicated rule
     if ruleWasNotGenerated:
-        GENERATED_RULES = generateNewRule(GENERATED_RULES, currentRecord, twoMaxValues, rulesAttributes, ITERATOR)
+        GENERATED_RULES = generateNewRule(GENERATED_RULES, currentRecord, maxValues, rulesAttributes, ITERATOR)
         GENERATED_RULES = GENERATED_RULES[0]
         ITERATOR = GENERATED_RULES[1]
     rulesAttributes = []
