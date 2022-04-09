@@ -39,6 +39,7 @@ for x in range(inputDataLength):
         quantityOfAllThisTypeRecords = currentRecordData[list(currentRecordData)[rule]]
         generatedRule = H(quantityOfAllThisTypeRecords, quantityOfRightRecords, inputDataLength)
         if generatedRule == "rule":
+            # @TODO Fix index and push method just to make it easy then to sort and fix
             generatedRules.append({x: "IF {rule} = {condition} THEN {response} = {result}"
                 .format(
                     rule=list(currentRecordData)[rule],
@@ -57,7 +58,6 @@ for x in range(inputDataLength):
     if not ruleWasGenerated:
         newRule = "IF "
         newRecordsWithComplicatedRules = lookForComplicatedRules(currentRecord, twoMaxValues)
-        print("newRecordsWithComplicatedRules: " + str(newRecordsWithComplicatedRules))
         # Generate complicated rule
         for attr, value in newRecordsWithComplicatedRules[1].items():
             newRule = newRule + str(attr) + " = "
@@ -69,6 +69,7 @@ for x in range(inputDataLength):
         checkForRule = []
         for t in newRecordsWithComplicatedRules[0]:
             print(t)
+            
             for attr, value in t.items():
                 checkForRule.append(value[keyAttribute])
         print("newRule: " + str(newRule))
@@ -85,4 +86,3 @@ for x in range(inputDataLength):
 for item in generatedRules:
     for attr, value in item.items():
         print("{key} - {value}".format(key=attr+1, value=value))
-    # print('-------------')
