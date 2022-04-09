@@ -1,5 +1,5 @@
 from collections import Counter
-from common import getRule, getTwoMaxValues, lookForComplicatedRules, H
+from common import getRule, getTwoMaxValues, lookForComplicatedRules, generateNewRule, H
 from parser import parseInputData, getAllPossibleAttributes, getKeyAttribute, getDecisionAttributes
 data = parseInputData()
 keyAttribute = getKeyAttribute()
@@ -59,35 +59,7 @@ for x in range(inputDataLength):
     twoMaxValues = getTwoMaxValues(nonRulesAttributes)
     # Generate complicated rule
     if not ruleWasGenerated:
-        newRule = "IF "
-        newRecordsWithComplicatedRules = lookForComplicatedRules(currentRecord, twoMaxValues)
-        for attr, value in newRecordsWithComplicatedRules[1].items():
-            newRule = newRule + str(attr) + " = "
-            if list(newRecordsWithComplicatedRules[1])[-1] == attr:
-                newRule = newRule + str(getRule(attr, value, allPossibleAttributes))
-            else:
-                newRule = newRule + str(getRule(attr, value, allPossibleAttributes)) + " AND "
-
-        checkForRule = []
-        for t in newRecordsWithComplicatedRules[0]:
-            for attr, value in t.items():
-                checkForRule.append(value[keyAttribute])
-        print("checkForRule: " + str(checkForRule))
-        print("checkForRule most common: " + str(Counter(checkForRule).most_common(1)))
-        if Counter(checkForRule).most_common(1)[0][1] == len(checkForRule):
-            newRule += " THEN {response} = {result}".format(
-                response=keyAttribute, result=getRule(keyAttribute, Counter(checkForRule).most_common(1)[0][0], allPossibleAttributes)
-            )
-            for t in newRecordsWithComplicatedRules[0]:
-                pushRule = True
-                for rule in generatedRules:
-                    if rule['index'] == list(t)[0]:
-                        pushRule = False
-                if pushRule:
-                    generatedRules.append({'index': list(t)[0], 'rule': newRule})
-        else:
-            print("Seems impossible to generate rule with this data!")
-        print("newRule: " + str(newRule))
+        generatedRules = generateNewRule(generatedRules, currentRecord, twoMaxValues)
     nonRulesAttributes = []
     # Recount my calcs, because it looks like something went wrong
     print('#####################')

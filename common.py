@@ -1,5 +1,8 @@
-from parser import getData
+from parser import getData, getKeyAttribute, getAllPossibleAttributes
+from collections import Counter
 data = getData()
+keyAttribute = getKeyAttribute()
+allPossibleAttributes = getAllPossibleAttributes()
 
 
 def getRule(ruleName, ruleValue, allRules):
@@ -43,3 +46,38 @@ def lookForComplicatedRules(currentRecord, twoMaxValues):
     outputData.append(newRuleRecords)
     outputData.append(newRule)
     return outputData
+
+
+def generateNewRule(generatedRules, currentRecord, twoMaxValues):
+    newRule = "IF "
+    newRecordsWithComplicatedRules = lookForComplicatedRules(currentRecord, twoMaxValues)
+    for attr, value in newRecordsWithComplicatedRules[1].items():
+        newRule = newRule + str(attr) + " = "
+        if list(newRecordsWithComplicatedRules[1])[-1] == attr:
+            newRule = newRule + str(getRule(attr, value, allPossibleAttributes))
+        else:
+            newRule = newRule + str(getRule(attr, value, allPossibleAttributes)) + " AND "
+
+    checkForRule = []
+    for t in newRecordsWithComplicatedRules[0]:
+        for attr, value in t.items():
+            checkForRule.append(value[keyAttribute])
+    print("checkForRule: " + str(checkForRule))
+    print("checkForRule most common: " + str(Counter(checkForRule).most_common(1)))
+    if Counter(checkForRule).most_common(1)[0][1] == len(checkForRule):
+        newRule += " THEN {response} = {result}".format(
+            response=keyAttribute,
+            result=getRule(keyAttribute, Counter(checkForRule).most_common(1)[0][0], allPossibleAttributes)
+        )
+        for t in newRecordsWithComplicatedRules[0]:
+            pushRule = True
+            for rule in generatedRules:
+                if rule['index'] == list(t)[0]:
+                    pushRule = False
+            if pushRule:
+                generatedRules.append({'index': list(t)[0], 'rule': newRule})
+    else:
+        # From here I should continue
+        print("Seems impossible to generate rule with this data!")
+
+    return generatedRules
