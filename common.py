@@ -8,7 +8,6 @@ def getRule(ruleName, ruleValue, allRules):
 
 def getTwoMaxValues(obj):
     twoMaxValue = {}
-    print("obj: " + str(obj))
     sortedNonRuleAttributes = sorted(obj, key=lambda dct: list(dct.values())[0])[-2:]
     for item in sortedNonRuleAttributes:
         for attr, value in item.items():

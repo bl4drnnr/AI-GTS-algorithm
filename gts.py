@@ -84,11 +84,7 @@ for x in range(inputDataLength):
                     if rule['index'] == list(t)[0]:
                         pushRule = False
                 if pushRule:
-                    generatedRules.append({
-                        'index': list(t)[0],
-                        'rule': newRule
-                    })
-            # Push here
+                    generatedRules.append({'index': list(t)[0], 'rule': newRule})
         else:
             print("Seems impossible to generate rule with this data!")
         print("newRule: " + str(newRule))
