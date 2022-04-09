@@ -30,8 +30,8 @@ for x in range(INPUT_DATA_LENGTH):
     print("currentRecordData: " + str(currentRecordData))
     print("currentRecordDataFiltered: " + str(currentRecordDataFiltered))
     print("currentRecord: " + str(currentRecord))
-    nonRulesAttributes = []
-    ruleWasGenerated = False
+    rulesAttributes = []
+    ruleWasNotGenerated = True
     for rule in range(len(list(getDecisionAttributes()))):
         quantityOfRightRecords = \
             currentRecordData[list(currentRecordData)[rule]] - \
@@ -48,20 +48,20 @@ for x in range(INPUT_DATA_LENGTH):
                     response=KEY_ATTRIBUTE,
                     result=getRule(KEY_ATTRIBUTE, currentRecord[KEY_ATTRIBUTE], ALL_POSSIBLE_ATTRIBUTES)
                     )})
-            ruleWasGenerated = True
+            ruleWasNotGenerated = False
             print(list(currentRecordData)[rule] + " - rule")
         else:
-            nonRulesAttributes.append({list(currentRecordData)[rule]: generatedRule})
+            rulesAttributes.append({list(currentRecordData)[rule]: generatedRule})
             print(list(currentRecordData)[rule] + " - not rule :( - " + str(generatedRule))
 
-    print("nonRulesAttributes: " + str(nonRulesAttributes))
-    twoMaxValues = getXMaxValues(nonRulesAttributes, ITERATOR)
+    print("rulesAttributes: " + str(rulesAttributes))
+    twoMaxValues = getXMaxValues(rulesAttributes, ITERATOR)
     # Generate complicated rule
-    if not ruleWasGenerated:
-        GENERATED_RULES = generateNewRule(GENERATED_RULES, currentRecord, twoMaxValues, nonRulesAttributes, ITERATOR)
+    if ruleWasNotGenerated:
+        GENERATED_RULES = generateNewRule(GENERATED_RULES, currentRecord, twoMaxValues, rulesAttributes, ITERATOR)
         GENERATED_RULES = GENERATED_RULES[0]
         ITERATOR = GENERATED_RULES[1]
-    nonRulesAttributes = []
+    rulesAttributes = []
     # Recount my calcs, because it looks like something went wrong
     print('#####################')
 
