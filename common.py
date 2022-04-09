@@ -1,8 +1,8 @@
 from parser import getData, getKeyAttribute, getAllPossibleAttributes
 from collections import Counter
-data = getData()
-keyAttribute = getKeyAttribute()
-allPossibleAttributes = getAllPossibleAttributes()
+DATA = getData()
+KEY_ATTRIBUTE = getKeyAttribute()
+ALL_POSSIBLE_ATTRIBUTES = getAllPossibleAttributes()
 
 
 def getRule(ruleName, ruleValue, allRules):
@@ -35,7 +35,7 @@ def lookForComplicatedRules(currentRecord, twoMaxValues):
         newRule[attr] = currentRecord[attr]
     print("newRule: " + str(newRule))
     print('---------------------')
-    for i, record in enumerate(data):
+    for i, record in enumerate(DATA):
         quantityOfMatchAttributes = 0
         for attr, value in newRule.items():
             if record[attr] == newRule[attr]:
@@ -48,42 +48,42 @@ def lookForComplicatedRules(currentRecord, twoMaxValues):
     return outputData
 
 
-def generateNewRule(generatedRules, currentRecord, twoMaxValues, nonRulesAttributes, iterator):
+def generateNewRule(GENERATED_RULES, currentRecord, twoMaxValues, nonRulesAttributes, ITERATOR):
     newRule = "IF "
     newRecordsWithComplicatedRules = lookForComplicatedRules(currentRecord, twoMaxValues)
     for attr, value in newRecordsWithComplicatedRules[1].items():
         newRule = newRule + str(attr) + " = "
         if list(newRecordsWithComplicatedRules[1])[-1] == attr:
-            newRule = newRule + str(getRule(attr, value, allPossibleAttributes))
+            newRule = newRule + str(getRule(attr, value, ALL_POSSIBLE_ATTRIBUTES))
         else:
-            newRule = newRule + str(getRule(attr, value, allPossibleAttributes)) + " AND "
+            newRule = newRule + str(getRule(attr, value, ALL_POSSIBLE_ATTRIBUTES)) + " AND "
 
     checkForRule = []
     for t in newRecordsWithComplicatedRules[0]:
         for attr, value in t.items():
-            checkForRule.append(value[keyAttribute])
+            checkForRule.append(value[KEY_ATTRIBUTE])
     print("checkForRule: " + str(checkForRule))
     print("checkForRule most common: " + str(Counter(checkForRule).most_common(1)))
     if Counter(checkForRule).most_common(1)[0][1] == len(checkForRule):
         newRule += " THEN {response} = {result}".format(
-            response=keyAttribute,
-            result=getRule(keyAttribute, Counter(checkForRule).most_common(1)[0][0], allPossibleAttributes)
+            response=KEY_ATTRIBUTE,
+            result=getRule(KEY_ATTRIBUTE, Counter(checkForRule).most_common(1)[0][0], ALL_POSSIBLE_ATTRIBUTES)
         )
         for t in newRecordsWithComplicatedRules[0]:
             pushRule = True
-            for rule in generatedRules:
+            for rule in GENERATED_RULES:
                 if rule['index'] == list(t)[0]:
                     pushRule = False
             # Something with this check
             if pushRule:
-                generatedRules.append({'index': list(t)[0], 'rule': newRule})
+                GENERATED_RULES.append({'index': list(t)[0], 'rule': newRule})
     else:
-        newMaxValues = getXMaxValues(nonRulesAttributes, iterator)
-        iterator += 1
+        newMaxValues = getXMaxValues(nonRulesAttributes, ITERATOR)
+        ITERATOR += 1
         # From here I should continue
-        generateNewRule(generatedRules, currentRecord, newMaxValues, nonRulesAttributes)
-        print("Seems impossible to generate rule with this data!")
+        generateNewRule(GENERATED_RULES, currentRecord, newMaxValues, nonRulesAttributes)
+        print("Seems impossible to generate rule with this DATA!")
 
-    outputData = [generatedRules, iterator]
+    outputData = [GENERATED_RULES, ITERATOR]
     return outputData
 
