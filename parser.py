@@ -40,7 +40,7 @@ def parseInputData():
         for attr, value in ALL_POSSIBLE_ATTRIBUTES[param].items():
             ALL_POSSIBLE_ATTRIBUTES[param][attr] += i
             i += 1
-    # Parse input DATA
+    # Parse input data
     for record in DATA:
         for attr, value in record.items():
             record[attr] = ALL_POSSIBLE_ATTRIBUTES[attr][value]
