@@ -3,6 +3,7 @@ from parser import parseInputData, getAllPossibleAttributes, getKeyAttribute, ge
 data = parseInputData()
 keyAttribute = getKeyAttribute()
 allPossibleAttributes = getAllPossibleAttributes()
+iterator = 2
 
 inputDataLength = len(data)
 generatedRules = []
@@ -55,10 +56,12 @@ for x in range(inputDataLength):
             print(list(currentRecordData)[rule] + " - not rule :( - " + str(generatedRule))
 
     print("nonRulesAttributes: " + str(nonRulesAttributes))
-    twoMaxValues = getXMaxValues(nonRulesAttributes, 2)
+    twoMaxValues = getXMaxValues(nonRulesAttributes, iterator)
     # Generate complicated rule
     if not ruleWasGenerated:
-        generatedRules = generateNewRule(generatedRules, currentRecord, twoMaxValues, nonRulesAttributes)
+        generatedRules = generateNewRule(generatedRules, currentRecord, twoMaxValues, nonRulesAttributes, iterator)
+        generatedRules = generatedRules[0]
+        iterator = generatedRules[1]
     nonRulesAttributes = []
     # Recount my calcs, because it looks like something went wrong
     print('#####################')
