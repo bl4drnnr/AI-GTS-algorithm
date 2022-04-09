@@ -3,6 +3,7 @@ from parser import parseInputData, getAllPossibleAttributes, getKeyAttribute, ge
 data = parseInputData()
 keyAttribute = getKeyAttribute()
 allPossibleAttributes = getAllPossibleAttributes()
+print("allPossibleAttributes: " + str(allPossibleAttributes))
 
 inputDataLength = len(data)
 generatedRules = []
@@ -11,6 +12,7 @@ for x in range(inputDataLength):
     currentRecord = data[x]
     currentRecordData = getDecisionAttributes()
     currentRecordDataFiltered = getDecisionAttributes()
+    print("currentRecord start: " + str(currentRecord))
 
     # Collecting information for one current record
     for y in data:
@@ -65,11 +67,14 @@ for x in range(inputDataLength):
                 newRule = newRule + str(getRule(attr, value, allPossibleAttributes))
             else:
                 newRule = newRule + str(getRule(attr, value, allPossibleAttributes)) + " AND "
-        # for t in newRecordsWithComplicatedRules[0]:
-        #     print(t)
-        # for newRecord in newRecordsWithComplicatedRules:
-        #     generatedRules.append({x: "test"})
+
+        checkForRule = []
+        for t in newRecordsWithComplicatedRules[0]:
+            print(t)
+            for attr, value in t.items():
+                checkForRule.append(value[keyAttribute])
         print("newRule: " + str(newRule))
+        print("checkForRule: " + str(checkForRule))
     nonRulesAttributes = []
     # Iterate one more time input data, but with 1+ conditions
     # Recount my calcs, because it looks like something went wrong

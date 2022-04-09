@@ -21,6 +21,7 @@ def getDecisionAttributes():
     return decisionAttributes
 
 
+# @TODO check allPossibleAttributes
 def parseInputData():
     # Get all possible attributes and classes
     for item in data:
