@@ -69,6 +69,7 @@ for x in range(inputDataLength):
         checkForRule = []
         for t in newRecordsWithComplicatedRules[0]:
             print(t)
+            
             for attr, value in t.items():
                 checkForRule.append(value[keyAttribute])
         print("newRule: " + str(newRule))
