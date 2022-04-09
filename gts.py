@@ -1,4 +1,4 @@
-from common import getRule, getTwoMaxValue, lookForComplicatedRules, H
+from common import getRule, getTwoMaxValues, lookForComplicatedRules, H
 from parser import parseInputData, getAllPossibleAttributes, getKeyAttribute, getDecisionAttributes
 data = parseInputData()
 keyAttribute = getKeyAttribute()
@@ -31,7 +31,7 @@ for x in range(inputDataLength):
     print("currentRecordDataFiltered: " + str(currentRecordDataFiltered))
     print("currentRecord: " + str(currentRecord))
     nonRulesAttributes = []
-    ifRuleWasGenerated = False
+    ruleWasGenerated = False
     for rule in range(len(list(getDecisionAttributes()))):
         quantityOfRightRecords = \
             currentRecordData[list(currentRecordData)[rule]] - \
@@ -46,16 +46,30 @@ for x in range(inputDataLength):
                     response=keyAttribute,
                     result=getRule(keyAttribute, currentRecord[keyAttribute], allPossibleAttributes)
                     )})
-            ifRuleWasGenerated = True
+            ruleWasGenerated = True
             print(list(currentRecordData)[rule] + " - rule")
         else:
             nonRulesAttributes.append({list(currentRecordData)[rule]: generatedRule})
             print(list(currentRecordData)[rule] + " - not rule :( - " + str(generatedRule))
 
     print("nonRulesAttributes: " + str(nonRulesAttributes))
-    twoMaxValues = getTwoMaxValue(nonRulesAttributes)
-    if not ifRuleWasGenerated:
-        lookForComplicatedRules(currentRecord, twoMaxValues)
+    twoMaxValues = getTwoMaxValues(nonRulesAttributes)
+    if not ruleWasGenerated:
+        newRule = "IF "
+        newRecordsWithComplicatedRules = lookForComplicatedRules(currentRecord, twoMaxValues)
+        print("newRecordsWithComplicatedRules: " + str(newRecordsWithComplicatedRules))
+        # Generate complicated rule
+        for attr, value in newRecordsWithComplicatedRules[1].items():
+            newRule = newRule + str(attr) + " = "
+            if list(newRecordsWithComplicatedRules[1])[-1] == attr:
+                newRule = newRule + str(getRule(attr, value, allPossibleAttributes))
+            else:
+                newRule = newRule + str(getRule(attr, value, allPossibleAttributes)) + " AND "
+        # for t in newRecordsWithComplicatedRules[0]:
+        #     print(t)
+        # for newRecord in newRecordsWithComplicatedRules:
+        #     generatedRules.append({x: "test"})
+        print("newRule: " + str(newRule))
     nonRulesAttributes = []
     # Iterate one more time input data, but with 1+ conditions
     # Recount my calcs, because it looks like something went wrong
