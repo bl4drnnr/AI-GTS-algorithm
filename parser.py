@@ -6,6 +6,10 @@ data = data['inputdata']
 allPossibleAttributes = {}
 
 
+def getData():
+    return data
+
+
 def getAllPossibleAttributes():
     return allPossibleAttributes
 

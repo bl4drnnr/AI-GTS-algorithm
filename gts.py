@@ -65,11 +65,14 @@ for x in range(inputDataLength):
                 newRule = newRule + str(getRule(attr, value, allPossibleAttributes))
             else:
                 newRule = newRule + str(getRule(attr, value, allPossibleAttributes)) + " AND "
-        # for t in newRecordsWithComplicatedRules[0]:
-        #     print(t)
-        # for newRecord in newRecordsWithComplicatedRules:
-        #     generatedRules.append({x: "test"})
+
+        checkForRule = []
+        for t in newRecordsWithComplicatedRules[0]:
+            print(t)
+            for attr, value in t.items():
+                checkForRule.append(value[keyAttribute])
         print("newRule: " + str(newRule))
+        print("checkForRule: " + str(checkForRule))
     nonRulesAttributes = []
     # Iterate one more time input data, but with 1+ conditions
     # Recount my calcs, because it looks like something went wrong
