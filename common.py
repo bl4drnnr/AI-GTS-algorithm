@@ -41,7 +41,7 @@ def lookForComplicatedRules(currentRecord, maxValues):
     return outputData
 
 
-def generateNewRule(GENERATED_RULES, currentRecord, maxValues, rulesAttributes, ITERATOR):
+def generateNewRule(GENERATED_RULES, currentRecord, maxValues, rulesAttributes, RULE_ITERATOR):
     newRule = "IF "
     newRecordsWithComplicatedRules = lookForComplicatedRules(currentRecord, maxValues)
     for attr, value in newRecordsWithComplicatedRules[1].items():
@@ -68,10 +68,10 @@ def generateNewRule(GENERATED_RULES, currentRecord, maxValues, rulesAttributes, 
             if pushRule:
                 GENERATED_RULES.append({'index': list(record)[0], 'rule': newRule})
     else:
-        newMaxValues = getXMaxValues(rulesAttributes, ITERATOR)
-        ITERATOR += 1
-        generateNewRule(GENERATED_RULES, currentRecord, newMaxValues, rulesAttributes, ITERATOR)
+        newMaxValues = getXMaxValues(rulesAttributes, RULE_ITERATOR)
+        RULE_ITERATOR += 1
+        generateNewRule(GENERATED_RULES, currentRecord, newMaxValues, rulesAttributes, RULE_ITERATOR)
 
-    outputData = [GENERATED_RULES, ITERATOR]
+    outputData = [GENERATED_RULES, RULE_ITERATOR]
     return outputData
 
