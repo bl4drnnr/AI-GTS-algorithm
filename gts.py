@@ -66,6 +66,7 @@ for x in range(INPUT_DATA_LENGTH):
     if ruleWasNotGenerated:
         test = generateNewRule(GENERATED_RULES, currentRecord, maxValues, rulesAttributes, ITERATOR)
         GENERATED_RULES = test[0]
+        # ITERATOR = 2
         ITERATOR = test[1]
     rulesAttributes = []
     # Recount my calcs, because it looks like something went wrong
@@ -77,3 +78,26 @@ GENERATED_RULES = sorted(GENERATED_RULES, key=lambda ruleSort: ruleSort['index']
 
 for item in GENERATED_RULES:
     print('{index} - {rule}'.format(index=item['index'] + 1, rule=item['rule']))
+
+# 1 - IF Lzawienie = normalne AND Astygmatyzm = nie THEN SOCZEWKI = miekkie
+# 2 - IF Wiek = mlody AND Lzawienie = normalne AND Astygmatyzm = tak THEN SOCZEWKI = twarde
+# 3 - IF Lzawienie = zmniejszone THEN SOCZEWKI = brak
+# 4 - IF Lzawienie = zmniejszone THEN SOCZEWKI = brak
+# 5 - IF Lzawienie = zmniejszone THEN SOCZEWKI = brak
+# 6 - IF Lzawienie = normalne AND Astygmatyzm = nie THEN SOCZEWKI = miekkie
+# 7 - IF Wiek = mlody AND Lzawienie = normalne AND Astygmatyzm = tak THEN SOCZEWKI = twarde
+# 8 - IF Lzawienie = zmniejszone THEN SOCZEWKI = brak
+# 9 - IF Lzawienie = zmniejszone THEN SOCZEWKI = brak
+# 10 - IF Lzawienie = zmniejszone THEN SOCZEWKI = brak
+# 11 - IF Lzawienie = zmniejszone THEN SOCZEWKI = brak
+# 12 - IF Lzawienie = zmniejszone THEN SOCZEWKI = brak
+# 13 - IF Wada_wzroku = krotkowidz AND Lzawienie = normalne AND Astygmatyzm = tak THEN SOCZEWKI = twarde
+# 14 - IF Lzawienie = normalne AND Astygmatyzm = nie THEN SOCZEWKI = miekkie
+# 15 - IF Wiek = starczy AND Astygmatyzm = tak AND Wada_wzroku = dalekowidz THEN SOCZEWKI = brak
+# 16 - IF Lzawienie = zmniejszone THEN SOCZEWKI = brak
+# 17 - IF Lzawienie = zmniejszone THEN SOCZEWKI = brak
+# 18 - IF Lzawienie = zmniejszone THEN SOCZEWKI = brak
+# 19 - IF Lzawienie = zmniejszone THEN SOCZEWKI = brak
+# 20 - IF Lzawienie = normalne AND Astygmatyzm = nie THEN SOCZEWKI = miekkie
+# 21 - IF Lzawienie = normalne AND Astygmatyzm = nie THEN SOCZEWKI = miekkie
+# 22 - IF Wiek = prestarczy AND Astygmatyzm = tak AND Wada_wzroku = dalekowidz THEN SOCZEWKI = brak
