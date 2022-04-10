@@ -55,7 +55,8 @@ for x in range(INPUT_DATA_LENGTH):
             rulesAttributes.append({list(currentRecordData)[rule]: generatedRule})
 
     maxValues = getXMaxValues(rulesAttributes, ITERATOR)
-    # Generate complicated rule
+
+    # Generate complicated rule (2+ attributes)
     if ruleWasNotGenerated:
         GENERATED_RULES = generateNewRule(GENERATED_RULES, currentRecord, maxValues, rulesAttributes, ITERATOR)
         ITERATOR = 2
