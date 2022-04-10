@@ -6,6 +6,7 @@ ALL_POSSIBLE_ATTRIBUTES = getAllPossibleAttributes()
 ITERATOR = 2
 INPUT_DATA_LENGTH = len(DATA)
 GENERATED_RULES = []
+LIST_OF_RULES = []
 
 for x in range(INPUT_DATA_LENGTH):
     currentRecord = DATA[x]
@@ -67,5 +68,12 @@ GENERATED_RULES = sorted(GENERATED_RULES, key=lambda ruleSort: ruleSort['index']
 
 
 for item in GENERATED_RULES:
+    if item['rule'] not in LIST_OF_RULES:
+        LIST_OF_RULES.append(item['rule'])
     print('{index} - {rule}'.format(index=item['index'] + 1, rule=item['rule']))
 
+print('----------------------------------')
+print('LIST OF ALL RULES')
+
+for i, r in enumerate(LIST_OF_RULES):
+    print(str(i+1) + " - " + str(r))
