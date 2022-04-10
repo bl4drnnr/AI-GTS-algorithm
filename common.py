@@ -11,11 +11,7 @@ def getRule(ruleName, ruleValue, allRules):
 
 def getXMaxValues(obj, n):
     maxValues = {}
-    print("n: " + str(n))
-    print("obj: " + str(obj))
-    # sortedRuleAttributes = sorted(obj, key=lambda dct: list(dct.values())[0])[-n:]
     sortedRuleAttributes = sorted(obj, key=lambda x: max(v for v in x.values()))[-n:]
-    print("sortedRuleAttributes: " + str(sortedRuleAttributes))
     for rule in sortedRuleAttributes:
         for attr, value in rule.items():
             maxValues[attr] = value
@@ -29,15 +25,10 @@ def H(Epb, Ep, E):
 
 
 def lookForComplicatedRules(currentRecord, maxValues):
-    print('---------------------')
-    print("currentRecords: " + str(currentRecord))
-    print("maxValues: " + str(maxValues))
     newRule = {}
     newRuleRecords = []
     for attr, value in maxValues.items():
         newRule[attr] = currentRecord[attr]
-    print("newRule: " + str(newRule))
-    print('---------------------')
     for i, record in enumerate(DATA):
         quantityOfMatchAttributes = 0
         for attr, value in newRule.items():
@@ -64,8 +55,6 @@ def generateNewRule(GENERATED_RULES, currentRecord, maxValues, rulesAttributes, 
     for record in newRecordsWithComplicatedRules[0]:
         for attr, value in record.items():
             checkForRule.append(value[KEY_ATTRIBUTE])
-    print("checkForRule: " + str(checkForRule))
-    print("checkForRule most common: " + str(Counter(checkForRule).most_common(1)))
     if Counter(checkForRule).most_common(1)[0][1] == len(checkForRule):
         newRule += " THEN {response} = {result}".format(
             response=KEY_ATTRIBUTE,

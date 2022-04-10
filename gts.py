@@ -27,9 +27,6 @@ for x in range(INPUT_DATA_LENGTH):
                     currentRecordDataFiltered[list(currentRecord)[RULE_ITERATOR]] -= 1
 
     # Check if there is already generated rule
-    print("currentRecordData: " + str(currentRecordData))
-    print("currentRecordDataFiltered: " + str(currentRecordDataFiltered))
-    print("currentRecord: " + str(currentRecord))
     rulesAttributes = []
     ruleWasNotGenerated = True
     for rule in range(len(list(getDecisionAttributes()))):
@@ -43,7 +40,6 @@ for x in range(INPUT_DATA_LENGTH):
             for generated_rule in GENERATED_RULES:
                 if generated_rule['index'] == x:
                     pushSimpleRule = False
-                    print(str(generated_rule) + " " + str(x))
             if pushSimpleRule:
                 GENERATED_RULES.append({
                     'index': x,
@@ -55,20 +51,15 @@ for x in range(INPUT_DATA_LENGTH):
                         result=getRule(KEY_ATTRIBUTE, currentRecord[KEY_ATTRIBUTE], ALL_POSSIBLE_ATTRIBUTES)
                         )})
             ruleWasNotGenerated = False
-            print(list(currentRecordData)[rule] + " - rule")
         else:
             rulesAttributes.append({list(currentRecordData)[rule]: generatedRule})
-            print(list(currentRecordData)[rule] + " - not rule :( - " + str(generatedRule))
 
-    print("rulesAttributes: " + str(rulesAttributes))
     maxValues = getXMaxValues(rulesAttributes, ITERATOR)
     # Generate complicated rule
     if ruleWasNotGenerated:
         GENERATED_RULES = generateNewRule(GENERATED_RULES, currentRecord, maxValues, rulesAttributes, ITERATOR)
         ITERATOR = 2
     rulesAttributes = []
-    # Recount my calcs, because it looks like something went wrong
-    print('#####################')
 
 
 GENERATED_RULES = sorted(GENERATED_RULES, key=lambda ruleSort: ruleSort['index'])
