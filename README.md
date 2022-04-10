@@ -31,48 +31,48 @@ you can see generated rule for this record. For example, you see in `input.json`
 this outcome:
 
 
-`1 - IF Wada_wzroku = krotkowidz AND Lzawienie = normalne AND Astygmatyzm = nie THEN SOCZEWKI = miekkie`
+1 - IF Wada_wzroku = krotkowidz AND Lzawienie = normalne AND Astygmatyzm = nie THEN SOCZEWKI = miekkie
 \
-`2 - IF Wiek = mlody AND Lzawienie = normalne AND Astygmatyzm = tak THEN SOCZEWKI = twarde`
+2 - IF Wiek = mlody AND Lzawienie = normalne AND Astygmatyzm = tak THEN SOCZEWKI = twarde
 \
-`3 - IF Lzawienie = zmniejszone THEN SOCZEWKI = brak`
+3 - IF Lzawienie = zmniejszone THEN SOCZEWKI = brak
 \
-`4 - IF Lzawienie = zmniejszone THEN SOCZEWKI = brak`
+4 - IF Lzawienie = zmniejszone THEN SOCZEWKI = brak
 \
-`5 - IF Lzawienie = zmniejszone THEN SOCZEWKI = brak`
+5 - IF Lzawienie = zmniejszone THEN SOCZEWKI = brak
 \
-`6 - IF Wada_wzroku = krotkowidz AND Lzawienie = normalne AND Astygmatyzm = nie THEN SOCZEWKI = miekkie`
+6 - IF Wada_wzroku = krotkowidz AND Lzawienie = normalne AND Astygmatyzm = nie THEN SOCZEWKI = miekkie
 \
-`7 - IF Wiek = mlody AND Lzawienie = normalne AND Astygmatyzm = tak THEN SOCZEWKI = twarde`
+7 - IF Wiek = mlody AND Lzawienie = normalne AND Astygmatyzm = tak THEN SOCZEWKI = twarde
 \
-`8 - IF Lzawienie = zmniejszone THEN SOCZEWKI = brak`
+8 - IF Lzawienie = zmniejszone THEN SOCZEWKI = brak
 \
-`9 - IF Lzawienie = zmniejszone THEN SOCZEWKI = brak`
+9 - IF Lzawienie = zmniejszone THEN SOCZEWKI = brak
 \
-`10 - IF Lzawienie = zmniejszone THEN SOCZEWKI = brak`
+10 - IF Lzawienie = zmniejszone THEN SOCZEWKI = brak
 \
-`11 - IF Lzawienie = zmniejszone THEN SOCZEWKI = brak`
+11 - IF Lzawienie = zmniejszone THEN SOCZEWKI = brak
 \
-`12 - IF Lzawienie = zmniejszone THEN SOCZEWKI = brak`
+12 - IF Lzawienie = zmniejszone THEN SOCZEWKI = brak
 \
-`13 - IF Wada_wzroku = krotkowidz AND Lzawienie = normalne AND Astygmatyzm = tak THEN SOCZEWKI = twarde`
+13 - IF Wada_wzroku = krotkowidz AND Lzawienie = normalne AND Astygmatyzm = tak THEN SOCZEWKI = twarde
 \
-`14 - IF Wada_wzroku = dalekowidz AND Lzawienie = normalne AND Astygmatyzm = nie THEN SOCZEWKI = miekkie`
+14 - IF Wada_wzroku = dalekowidz AND Lzawienie = normalne AND Astygmatyzm = nie THEN SOCZEWKI = miekkie
 \
-`15 - IF Wiek = starczy AND Astygmatyzm = tak AND Wada_wzroku = dalekowidz THEN SOCZEWKI = brak`
+15 - IF Wiek = starczy AND Astygmatyzm = tak AND Wada_wzroku = dalekowidz THEN SOCZEWKI = brak
 \
-`16 - IF Lzawienie = zmniejszone THEN SOCZEWKI = brak`
+16 - IF Lzawienie = zmniejszone THEN SOCZEWKI = brak
 \
-`17 - IF Lzawienie = zmniejszone THEN SOCZEWKI = brak`
+17 - IF Lzawienie = zmniejszone THEN SOCZEWKI = brak
 \
-`18 - IF Lzawienie = zmniejszone THEN SOCZEWKI = brak`
+18 - IF Lzawienie = zmniejszone THEN SOCZEWKI = brak
 \
-`19 - IF Lzawienie = zmniejszone THEN SOCZEWKI = brak`
+19 - IF Lzawienie = zmniejszone THEN SOCZEWKI = brak
 \
-`20 - IF Wada_wzroku = dalekowidz AND Lzawienie = normalne AND Astygmatyzm = nie THEN SOCZEWKI = miekkie`
+20 - IF Wada_wzroku = dalekowidz AND Lzawienie = normalne AND Astygmatyzm = nie THEN SOCZEWKI = miekkie
 \
-`21 - IF Wada_wzroku = dalekowidz AND Lzawienie = normalne AND Astygmatyzm = nie THEN SOCZEWKI = miekkie`
+21 - IF Wada_wzroku = dalekowidz AND Lzawienie = normalne AND Astygmatyzm = nie THEN SOCZEWKI = miekkie
 \
-`22 - IF Wiek = prestarczy AND Astygmatyzm = tak AND Wada_wzroku = dalekowidz THEN SOCZEWKI = brak`
+22 - IF Wiek = prestarczy AND Astygmatyzm = tak AND Wada_wzroku = dalekowidz THEN SOCZEWKI = brak
 
 
