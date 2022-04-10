@@ -55,17 +55,17 @@ for x in range(INPUT_DATA_LENGTH):
         else:
             rulesAttributes.append({list(currentRecordData)[rule]: generatedRule})
 
-    maxValues = getXMaxValues(rulesAttributes, RULE_ITERATOR)
     # Generate complicated rule
+    maxValues = getXMaxValues(rulesAttributes, RULE_ITERATOR)
     if ruleWasNotGenerated:
         GENERATED_RULES = generateNewRule(GENERATED_RULES, currentRecord, maxValues, rulesAttributes, RULE_ITERATOR)
         GENERATED_RULES = GENERATED_RULES[0]
         RULE_ITERATOR = GENERATED_RULES[1]
     rulesAttributes = []
 
-
+# Sort rules by index
 GENERATED_RULES = sorted(GENERATED_RULES, key=lambda ruleSort: ruleSort['index'])
 
-
+# Print all rules
 for item in GENERATED_RULES:
     print('{index} - {rule}'.format(index=item['index'] + 1, rule=item['rule']))
