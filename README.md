@@ -30,8 +30,7 @@ where on the left side you can see index of the records and on the right side, a
 you can see generated rule for this record. For example, you see in `input.json` you will see
 this outcome:
 
-
-`1 - IF Wada_wzroku = krotkowidz AND Lzawienie = normalne AND Astygmatyzm = nie THEN SOCZEWKI = miekkie`
+`1 - IF Lzawienie = normalne AND Astygmatyzm = nie THEN SOCZEWKI = miekkie`
 \
 `2 - IF Wiek = mlody AND Lzawienie = normalne AND Astygmatyzm = tak THEN SOCZEWKI = twarde`
 \
@@ -41,7 +40,7 @@ this outcome:
 \
 `5 - IF Lzawienie = zmniejszone THEN SOCZEWKI = brak`
 \
-`6 - IF Wada_wzroku = krotkowidz AND Lzawienie = normalne AND Astygmatyzm = nie THEN SOCZEWKI = miekkie`
+`6 - IF Lzawienie = normalne AND Astygmatyzm = nie THEN SOCZEWKI = miekkie`
 \
 `7 - IF Wiek = mlody AND Lzawienie = normalne AND Astygmatyzm = tak THEN SOCZEWKI = twarde`
 \
@@ -57,7 +56,7 @@ this outcome:
 \
 `13 - IF Wada_wzroku = krotkowidz AND Lzawienie = normalne AND Astygmatyzm = tak THEN SOCZEWKI = twarde`
 \
-`14 - IF Wada_wzroku = dalekowidz AND Lzawienie = normalne AND Astygmatyzm = nie THEN SOCZEWKI = miekkie`
+`14 - IF Lzawienie = normalne AND Astygmatyzm = nie THEN SOCZEWKI = miekkie`
 \
 `15 - IF Wiek = starczy AND Astygmatyzm = tak AND Wada_wzroku = dalekowidz THEN SOCZEWKI = brak`
 \
@@ -69,9 +68,9 @@ this outcome:
 \
 `19 - IF Lzawienie = zmniejszone THEN SOCZEWKI = brak`
 \
-`20 - IF Wada_wzroku = dalekowidz AND Lzawienie = normalne AND Astygmatyzm = nie THEN SOCZEWKI = miekkie`
+`20 - IF Lzawienie = normalne AND Astygmatyzm = nie THEN SOCZEWKI = miekkie`
 \
-`21 - IF Wada_wzroku = dalekowidz AND Lzawienie = normalne AND Astygmatyzm = nie THEN SOCZEWKI = miekkie`
+`21 - IF Lzawienie = normalne AND Astygmatyzm = nie THEN SOCZEWKI = miekkie`
 \
 `22 - IF Wiek = prestarczy AND Astygmatyzm = tak AND Wada_wzroku = dalekowidz THEN SOCZEWKI = brak`
 
