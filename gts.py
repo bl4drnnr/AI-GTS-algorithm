@@ -40,7 +40,6 @@ for x in range(INPUT_DATA_LENGTH):
             for generated_rule in GENERATED_RULES:
                 if generated_rule['index'] == x:
                     pushSimpleRule = False
-                    print(str(generated_rule) + " " + str(x))
             if pushSimpleRule:
                 GENERATED_RULES.append({
                     'index': x,
@@ -58,9 +57,9 @@ for x in range(INPUT_DATA_LENGTH):
     # Generate complicated rule
     maxValues = getXMaxValues(rulesAttributes, RULE_ITERATOR)
     if ruleWasNotGenerated:
-        GENERATED_RULES = generateNewRule(GENERATED_RULES, currentRecord, maxValues, rulesAttributes, RULE_ITERATOR)
-        GENERATED_RULES = GENERATED_RULES[0]
-        RULE_ITERATOR = GENERATED_RULES[1]
+        generatedRulesRes = generateNewRule(GENERATED_RULES, currentRecord, maxValues, rulesAttributes, RULE_ITERATOR)
+        GENERATED_RULES = generatedRulesRes[0]
+        RULE_ITERATOR = generatedRulesRes[1]
     rulesAttributes = []
 
 # Sort rules by index

@@ -9,9 +9,10 @@ def getRule(ruleName, ruleValue, allRules):
     return list(allRules[ruleName].keys())[list(allRules[ruleName].values()).index(ruleValue)]
 
 
-def getXMaxValues(obj, x):
+def getXMaxValues(obj, n):
     maxValues = {}
-    sortedRuleAttributes = sorted(obj, key=lambda dct: list(dct.values())[0])[-x:]
+    # sortedRuleAttributes = sorted(obj, key=lambda dct: list(dct.values())[0])[-x:]
+    sortedRuleAttributes = sorted(obj, key=lambda x: max(v for v in x.values()))[-n:]
     for rule in sortedRuleAttributes:
         for attr, value in rule.items():
             maxValues[attr] = value
