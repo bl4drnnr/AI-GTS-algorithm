@@ -40,7 +40,7 @@ def lookForComplicatedRules(currentRecord, maxValues):
             if record[attr] == newRule[attr]:
                 quantityOfMatchAttributes += 1
         if quantityOfMatchAttributes == len(list(newRule)):
-            newRuleRecords.append({i+1: record})
+            newRuleRecords.append({i: record})
 
     outputData = [newRuleRecords, newRule]
     return outputData

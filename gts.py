@@ -32,8 +32,6 @@ for x in range(INPUT_DATA_LENGTH):
     print("currentRecord: " + str(currentRecord))
     rulesAttributes = []
     ruleWasNotGenerated = True
-    # @TODO Where is 5, 12, 19 index? (IF Lzawienie = zmniejszone THEN SOCZEWKI = brak)
-    # It could be problem with indexes
     for rule in range(len(list(getDecisionAttributes()))):
         quantityOfRightRecords = \
             currentRecordData[list(currentRecordData)[rule]] - \
@@ -78,4 +76,4 @@ GENERATED_RULES = sorted(GENERATED_RULES, key=lambda ruleSort: ruleSort['index']
 
 
 for item in GENERATED_RULES:
-    print('{index} - {rule}'.format(index=item['index'], rule=item['rule']))
+    print('{index} - {rule}'.format(index=item['index'] + 1, rule=item['rule']))
