@@ -3,7 +3,7 @@ from parser import parseInputData, getAllPossibleAttributes, getKeyAttribute, ge
 DATA = parseInputData()
 KEY_ATTRIBUTE = getKeyAttribute()
 ALL_POSSIBLE_ATTRIBUTES = getAllPossibleAttributes()
-ITERATOR = 1
+RULE_ITERATOR = 2
 INPUT_DATA_LENGTH = len(DATA)
 GENERATED_RULES = []
 
@@ -14,22 +14,19 @@ for x in range(INPUT_DATA_LENGTH):
 
     # Collecting information for one current record
     for record in DATA:
-        for attribute in range(len(list(getDecisionAttributes()))):
-            if record[list(currentRecord)[attribute]] == currentRecord[list(currentRecord)[attribute]]:
-                currentRecordData[list(currentRecord)[attribute]] += 1
-                currentRecordDataFiltered[list(currentRecord)[attribute]] += 1
+        for RULE_ITERATOR in range(len(list(getDecisionAttributes()))):
+            if record[list(currentRecord)[RULE_ITERATOR]] == currentRecord[list(currentRecord)[RULE_ITERATOR]]:
+                currentRecordData[list(currentRecord)[RULE_ITERATOR]] += 1
+                currentRecordDataFiltered[list(currentRecord)[RULE_ITERATOR]] += 1
 
     # Filter collected data to count values of G, A and H
     for record in DATA:
         if record[KEY_ATTRIBUTE] == currentRecord[KEY_ATTRIBUTE]:
-            for attribute in range(len(list(getDecisionAttributes()))):
-                if currentRecord[list(currentRecord)[attribute]] == record[list(currentRecord)[attribute]]:
-                    currentRecordDataFiltered[list(currentRecord)[attribute]] -= 1
+            for RULE_ITERATOR in range(len(list(getDecisionAttributes()))):
+                if currentRecord[list(currentRecord)[RULE_ITERATOR]] == record[list(currentRecord)[RULE_ITERATOR]]:
+                    currentRecordDataFiltered[list(currentRecord)[RULE_ITERATOR]] -= 1
 
     # Check if there is already generated rule
-    print("currentRecordData: " + str(currentRecordData))
-    print("currentRecordDataFiltered: " + str(currentRecordDataFiltered))
-    print("currentRecord: " + str(currentRecord))
     rulesAttributes = []
     ruleWasNotGenerated = True
     for rule in range(len(list(getDecisionAttributes()))):
@@ -43,7 +40,6 @@ for x in range(INPUT_DATA_LENGTH):
             for generated_rule in GENERATED_RULES:
                 if generated_rule['index'] == x:
                     pushSimpleRule = False
-                    print(str(generated_rule) + " " + str(x))
             if pushSimpleRule:
                 GENERATED_RULES.append({
                     'index': x,
@@ -55,25 +51,20 @@ for x in range(INPUT_DATA_LENGTH):
                         result=getRule(KEY_ATTRIBUTE, currentRecord[KEY_ATTRIBUTE], ALL_POSSIBLE_ATTRIBUTES)
                         )})
             ruleWasNotGenerated = False
-            print(list(currentRecordData)[rule] + " - rule")
         else:
             rulesAttributes.append({list(currentRecordData)[rule]: generatedRule})
-            print(list(currentRecordData)[rule] + " - not rule :( - " + str(generatedRule))
 
-    print("rulesAttributes: " + str(rulesAttributes))
     # Generate complicated rule
+    maxValues = getXMaxValues(rulesAttributes, RULE_ITERATOR)
     if ruleWasNotGenerated:
-        maxValues = getXMaxValues(rulesAttributes, ITERATOR)
-        test = generateNewRule(GENERATED_RULES, currentRecord, maxValues, rulesAttributes, ITERATOR)
-        GENERATED_RULES = test[0]
-        ITERATOR = test[1]
+        generatedRulesRes = generateNewRule(GENERATED_RULES, currentRecord, maxValues, rulesAttributes, RULE_ITERATOR)
+        GENERATED_RULES = generatedRulesRes[0]
+        RULE_ITERATOR = generatedRulesRes[1]
     rulesAttributes = []
-    # Recount my calcs, because it looks like something went wrong
-    print('#####################')
 
-
+# Sort rules by index
 GENERATED_RULES = sorted(GENERATED_RULES, key=lambda ruleSort: ruleSort['index'])
 
-
+# Print all rules
 for item in GENERATED_RULES:
     print('{index} - {rule}'.format(index=item['index'] + 1, rule=item['rule']))
