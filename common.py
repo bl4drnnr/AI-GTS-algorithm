@@ -75,14 +75,18 @@ def generateNewRule(GENERATED_RULES, currentRecord, maxValues, rulesAttributes, 
     return GENERATED_RULES
 
 
-def printResults(GENERATED_RULES, LIST_OF_RULES):
+def printResults(GENERATED_RULES):
+    listOfRules = {}
     for item in GENERATED_RULES:
-        if item['rule'] not in LIST_OF_RULES:
-            LIST_OF_RULES.append(item['rule'])
+        if listOfRules.get(item['rule']) is None:
+            listOfRules[item['rule']] = [item['index'] + 1]
+        else:
+            listOfRules[item['rule']].append(item['index'] + 1)
         print('{index} - {rule}'.format(index=item['index'] + 1, rule=item['rule']))
 
     print('----------------------------------')
-    print('LIST OF ALL RULES')
+    print('LIST OF ALL RULES AND DEDICATED RECORDS TO THOSE RULES')
 
-    for i, r in enumerate(LIST_OF_RULES):
-        print(str(i + 1) + " - " + str(r))
+    for i, attr in enumerate(listOfRules.items()):
+        print("{idx} - {rule} - {records}".format(idx=i+1, rule=attr[0], records=attr[1]))
+

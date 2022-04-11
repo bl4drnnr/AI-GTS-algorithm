@@ -6,7 +6,6 @@ ALL_POSSIBLE_ATTRIBUTES = getAllPossibleAttributes()
 ITERATOR = 2
 INPUT_DATA_LENGTH = len(DATA)
 GENERATED_RULES = []
-LIST_OF_RULES = []
 
 for x in range(INPUT_DATA_LENGTH):
     currentRecord = DATA[x]
@@ -67,4 +66,4 @@ for x in range(INPUT_DATA_LENGTH):
 GENERATED_RULES = sorted(GENERATED_RULES, key=lambda ruleSort: ruleSort['index'])
 
 
-printResults(GENERATED_RULES, LIST_OF_RULES)
+printResults(GENERATED_RULES)
