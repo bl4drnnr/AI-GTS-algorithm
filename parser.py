@@ -1,6 +1,6 @@
 import json
 
-f = open('input.json')
+f = open('inputtest.json')
 DATA = json.load(f)
 DATA = DATA['inputdata']
 ALL_POSSIBLE_ATTRIBUTES = {}
