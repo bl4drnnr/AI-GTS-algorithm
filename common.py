@@ -72,7 +72,6 @@ def generateNewRule(GENERATED_RULES, currentRecord, maxValues, rulesAttributes, 
         ITERATOR += 1
         generateNewRule(GENERATED_RULES, currentRecord, newMaxValues, rulesAttributes, ITERATOR)
 
-    print(GENERATED_RULES)
     return GENERATED_RULES
 
 
