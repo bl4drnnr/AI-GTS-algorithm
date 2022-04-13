@@ -41,6 +41,25 @@ def lookForComplicatedRules(currentRecord, maxValues):
     return outputData
 
 
+# def generateNewRuleTest(currentRecord, maxValues, TEST):
+#     newRule = "IF "
+#     newRecordsWithComplicatedRules = lookForComplicatedRules(currentRecord, maxValues)
+#     for attr, value in newRecordsWithComplicatedRules[1].items():
+#         newRule = newRule + str(attr) + " = "
+#         if list(newRecordsWithComplicatedRules[1])[-1] == attr:
+#             newRule = newRule + str(getRule(attr, value, ALL_POSSIBLE_ATTRIBUTES))
+#         else:
+#             newRule = newRule + str(getRule(attr, value, ALL_POSSIBLE_ATTRIBUTES)) + " AND "
+#     # print(newRecordsWithComplicatedRules[0])
+#     for item in newRecordsWithComplicatedRules[0]:
+#         for attr, value in item.items():
+#             print(attr + 1)
+#     print(newRecordsWithComplicatedRules[1])
+#     print(newRule)
+#     print('-------------------------------')
+#     return TEST
+
+
 def generateNewRule(GENERATED_RULES, currentRecord, maxValues, rulesAttributes, ITERATOR):
     newRule = "IF "
     newRecordsWithComplicatedRules = lookForComplicatedRules(currentRecord, maxValues)
@@ -89,4 +108,3 @@ def printResults(GENERATED_RULES):
 
     for i, attr in enumerate(listOfRules.items()):
         print("{idx} - {rule} - {records}".format(idx=i+1, rule=attr[0], records=attr[1]))
-
