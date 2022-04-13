@@ -24,7 +24,6 @@ def H(Epb, Ep, E):
     return format((Epb / E) + (Ep / Epb) ** 0.5, ".3f")
 
 
-# @TODO PROBLEM WITH MAXVALUES ATTRIBUTES QUANTITY
 def lookForComplicatedRules(currentRecord, maxValues):
     newRule = {}
     newRuleRecords = []
@@ -67,6 +66,7 @@ def generateNewRule(GENERATED_RULES, currentRecord, maxValues, rulesAttributes, 
                 if rule['index'] == list(record)[0]:
                     pushRule = False
             if pushRule:
+                # @TODO HERE SHOULD BE CHECK FOR DOUBLE RULE
                 GENERATED_RULES.append({'index': list(record)[0], 'rule': newRule})
     else:
         newMaxValues = getXMaxValues(rulesAttributes, ITERATOR)
