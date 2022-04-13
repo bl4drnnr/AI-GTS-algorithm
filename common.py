@@ -24,7 +24,6 @@ def H(Epb, Ep, E):
     return format((Epb / E) + (Ep / Epb) ** 0.5, ".3f")
 
 
-# @TODO Need to iterate data one more time to find if 1 records is dedicated to 2 rules.
 def lookForComplicatedRules(currentRecord, maxValues):
     newRule = {}
     newRuleRecords = []
