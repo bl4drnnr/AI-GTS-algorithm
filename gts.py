@@ -6,6 +6,7 @@ ALL_POSSIBLE_ATTRIBUTES = getAllPossibleAttributes()
 ITERATOR = 2
 INPUT_DATA_LENGTH = len(DATA)
 GENERATED_RULES = []
+TEST = []
 
 for x in range(INPUT_DATA_LENGTH):
     currentRecord = DATA[x]
@@ -56,7 +57,7 @@ for x in range(INPUT_DATA_LENGTH):
 
     maxValues = getXMaxValues(rulesAttributes, ITERATOR)
 
-    generateNewRuleTest(currentRecord, getXMaxValues(rulesAttributes, 99))
+    TEST = generateNewRuleTest(currentRecord, getXMaxValues(rulesAttributes, 99), TEST)
     # Generate complicated rule (2+ attributes)
     if ruleWasNotGenerated:
         GENERATED_RULES = generateNewRule(GENERATED_RULES, currentRecord, maxValues, rulesAttributes, ITERATOR)
@@ -67,3 +68,7 @@ for x in range(INPUT_DATA_LENGTH):
 GENERATED_RULES = sorted(GENERATED_RULES, key=lambda ruleSort: ruleSort['index'])
 
 printResults(GENERATED_RULES)
+
+
+# for item in TEST:
+#     print(item)
