@@ -1,4 +1,4 @@
-from common import getRule, getXMaxValues, generateNewRule, printResults, generateNewRuleTest, H
+from common import getRule, getXMaxValues, generateNewRule, printResults, H
 from parser import parseInputData, getAllPossibleAttributes, getKeyAttribute, getDecisionAttributes
 DATA = parseInputData()
 KEY_ATTRIBUTE = getKeyAttribute()
@@ -6,7 +6,6 @@ ALL_POSSIBLE_ATTRIBUTES = getAllPossibleAttributes()
 ITERATOR = 2
 INPUT_DATA_LENGTH = len(DATA)
 GENERATED_RULES = []
-TEST = []
 
 for x in range(INPUT_DATA_LENGTH):
     currentRecord = DATA[x]
@@ -57,7 +56,6 @@ for x in range(INPUT_DATA_LENGTH):
 
     maxValues = getXMaxValues(rulesAttributes, ITERATOR)
 
-    TEST = generateNewRuleTest(currentRecord, getXMaxValues(rulesAttributes, 3), TEST)
     # Generate complicated rule (2+ attributes)
     if ruleWasNotGenerated:
         GENERATED_RULES = generateNewRule(GENERATED_RULES, currentRecord, maxValues, rulesAttributes, ITERATOR)
@@ -68,7 +66,3 @@ for x in range(INPUT_DATA_LENGTH):
 GENERATED_RULES = sorted(GENERATED_RULES, key=lambda ruleSort: ruleSort['index'])
 
 printResults(GENERATED_RULES)
-
-
-for item in TEST:
-    print(item)
