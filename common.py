@@ -51,6 +51,7 @@ def generateNewRule(GENERATED_RULES, currentRecord, maxValues, rulesAttributes, 
         else:
             newRule = newRule + str(getRule(attr, value, ALL_POSSIBLE_ATTRIBUTES)) + " AND "
 
+    # @TODO Here is new rule, fix iterator probably
     print(newRecordsWithComplicatedRules[1])
     checkForRule = []
     for record in newRecordsWithComplicatedRules[0]:
