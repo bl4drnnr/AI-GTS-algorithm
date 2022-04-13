@@ -43,9 +43,17 @@ def lookForComplicatedRules(currentRecord, maxValues):
 
 # @TODO Here is new rule, fix iterator probably or maxValues
 def generateNewRuleTest(currentRecord, maxValues, TEST):
+    newRule = "IF "
     newRecordsWithComplicatedRules = lookForComplicatedRules(currentRecord, maxValues)
+    for attr, value in newRecordsWithComplicatedRules[1].items():
+        newRule = newRule + str(attr) + " = "
+        if list(newRecordsWithComplicatedRules[1])[-1] == attr:
+            newRule = newRule + str(getRule(attr, value, ALL_POSSIBLE_ATTRIBUTES))
+        else:
+            newRule = newRule + str(getRule(attr, value, ALL_POSSIBLE_ATTRIBUTES)) + " AND "
     print(newRecordsWithComplicatedRules[0])
     print(newRecordsWithComplicatedRules[1])
+    print(newRule)
     print('-------------------------------')
     return TEST
 
