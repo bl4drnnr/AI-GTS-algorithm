@@ -66,4 +66,3 @@ for x in range(INPUT_DATA_LENGTH):
 GENERATED_RULES = sorted(GENERATED_RULES, key=lambda ruleSort: ruleSort['index'])
 
 printResults(GENERATED_RULES)
-

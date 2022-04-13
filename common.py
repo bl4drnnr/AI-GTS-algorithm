@@ -24,6 +24,7 @@ def H(Epb, Ep, E):
     return format((Epb / E) + (Ep / Epb) ** 0.5, ".3f")
 
 
+# @TODO HERE, LOGIC NEED TO BE FIXED, BECAUSE IT CANNOT PARSE RECORDS WITH SAME RULES
 def lookForComplicatedRules(currentRecord, maxValues):
     newRule = {}
     newRuleRecords = []
@@ -39,25 +40,6 @@ def lookForComplicatedRules(currentRecord, maxValues):
 
     outputData = [newRuleRecords, newRule]
     return outputData
-
-
-# def generateNewRuleTest(currentRecord, maxValues, TEST):
-#     newRule = "IF "
-#     newRecordsWithComplicatedRules = lookForComplicatedRules(currentRecord, maxValues)
-#     for attr, value in newRecordsWithComplicatedRules[1].items():
-#         newRule = newRule + str(attr) + " = "
-#         if list(newRecordsWithComplicatedRules[1])[-1] == attr:
-#             newRule = newRule + str(getRule(attr, value, ALL_POSSIBLE_ATTRIBUTES))
-#         else:
-#             newRule = newRule + str(getRule(attr, value, ALL_POSSIBLE_ATTRIBUTES)) + " AND "
-#     # print(newRecordsWithComplicatedRules[0])
-#     for item in newRecordsWithComplicatedRules[0]:
-#         for attr, value in item.items():
-#             print(attr + 1)
-#     print(newRecordsWithComplicatedRules[1])
-#     print(newRule)
-#     print('-------------------------------')
-#     return TEST
 
 
 def generateNewRule(GENERATED_RULES, currentRecord, maxValues, rulesAttributes, ITERATOR):
