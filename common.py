@@ -61,13 +61,7 @@ def generateNewRule(GENERATED_RULES, currentRecord, maxValues, rulesAttributes, 
             result=getRule(KEY_ATTRIBUTE, Counter(checkForRule).most_common(1)[0][0], ALL_POSSIBLE_ATTRIBUTES)
         )
         for record in newRecordsWithComplicatedRules[0]:
-            pushRule = True
-            for rule in GENERATED_RULES:
-                if rule['index'] == list(record)[0]:
-                    pushRule = False
-            if pushRule:
-                # @TODO HERE SHOULD BE CHECK FOR DOUBLE RULE
-                GENERATED_RULES.append({'index': list(record)[0], 'rule': newRule})
+            GENERATED_RULES.append({'index': list(record)[0], 'rule': newRule})
     else:
         newMaxValues = getXMaxValues(rulesAttributes, ITERATOR)
         ITERATOR += 1
