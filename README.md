@@ -1,10 +1,5 @@
 # AI-GTS-algorithm
-***
-***IMPORTANT MESSAGE***
 
-- There is one small bug. If record is dedicated to 2 rules, on the list you are going to see
-this record dedicated to only one rule! Not critical, but need to be fixed.
-***
 ### Description
 
 Prototype of GTS AI generating rules algorithm.
