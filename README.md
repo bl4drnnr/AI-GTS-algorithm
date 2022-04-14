@@ -28,7 +28,9 @@ There is only **one** condition for the correct operation of the algorithm.
 As a result you will get the table, that is going to look like this one,
 where on the left side you can see index of the records and on the right side, after `-` symbol
 you can see generated rule for this record. For example, you see in `input.json` you will see
-this outcome:
+this outcome.
+
+---
 
 `1 - IF Lzawienie = normalne AND Astygmatyzm = nie THEN SOCZEWKI = miekkie`
 \
@@ -44,11 +46,17 @@ this outcome:
 \
 `7 - IF Wiek = mlody AND Lzawienie = normalne AND Astygmatyzm = tak THEN SOCZEWKI = twarde`
 \
+`7 - IF Wada_wzroku = krotkowidz AND Lzawienie = normalne AND Astygmatyzm = tak THEN SOCZEWKI = twarde`
+\
 `8 - IF Lzawienie = zmniejszone THEN SOCZEWKI = brak`
+\
+`8 - IF Wiek = starczy AND Astygmatyzm = tak AND Wada_wzroku = dalekowidz THEN SOCZEWKI = brak`
 \
 `9 - IF Lzawienie = zmniejszone THEN SOCZEWKI = brak`
 \
 `10 - IF Lzawienie = zmniejszone THEN SOCZEWKI = brak`
+\
+`10 - IF Wiek = prestarczy AND Astygmatyzm = tak AND Wada_wzroku = dalekowidz THEN SOCZEWKI = brak`
 \
 `11 - IF Lzawienie = zmniejszone THEN SOCZEWKI = brak`
 \
@@ -73,5 +81,24 @@ this outcome:
 `21 - IF Lzawienie = normalne AND Astygmatyzm = nie THEN SOCZEWKI = miekkie`
 \
 `22 - IF Wiek = prestarczy AND Astygmatyzm = tak AND Wada_wzroku = dalekowidz THEN SOCZEWKI = brak`
+\
+`----------------------------------`
+\
+`LIST OF ALL RULES AND DEDICATED RECORDS TO THOSE RULES`
+\
+`1 - IF Lzawienie = normalne AND Astygmatyzm = nie THEN SOCZEWKI = miekkie - [1, 6, 14, 20, 21]`
+\
+`2 - IF Wiek = mlody AND Lzawienie = normalne AND Astygmatyzm = tak THEN SOCZEWKI = twarde - [2, 7]`
+\
+`3 - IF Lzawienie = zmniejszone THEN SOCZEWKI = brak - [3, 4, 5, 8, 9, 10, 11, 12, 16, 17, 18, 19]`
+\
+`4 - IF Wada_wzroku = krotkowidz AND Lzawienie = normalne AND Astygmatyzm = tak THEN SOCZEWKI = twarde - [7, 13]`
+\
+`5 - IF Wiek = starczy AND Astygmatyzm = tak AND Wada_wzroku = dalekowidz THEN SOCZEWKI = brak - [8, 15]`
+\
+`6 - IF Wiek = prestarczy AND Astygmatyzm = tak AND Wada_wzroku = dalekowidz THEN SOCZEWKI = brak - [10, 22]`
 
+---
+
+Note: Duplicate index records mean that this records dedicates to 1+ rule.
 
