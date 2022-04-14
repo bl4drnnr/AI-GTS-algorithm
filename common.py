@@ -72,12 +72,16 @@ def generateNewRule(GENERATED_RULES, currentRecord, maxValues, rulesAttributes, 
 
 def printResults(GENERATED_RULES):
     listOfRules = {}
+    listOfRecords = []
     for item in GENERATED_RULES:
         if listOfRules.get(item['rule']) is None:
             listOfRules[item['rule']] = [item['index'] + 1]
         else:
             listOfRules[item['rule']].append(item['index'] + 1)
-        print('{index} - {rule}'.format(index=item['index'] + 1, rule=item['rule']))
+        listOfRecords.append('{index} - {rule}'.format(index=item['index'] + 1, rule=item['rule']))
+    listOfRecords = list(dict.fromkeys(listOfRecords))
+    for record in listOfRecords:
+        print(record)
 
     print('----------------------------------')
     print('LIST OF ALL RULES AND DEDICATED RECORDS TO THOSE RULES')
