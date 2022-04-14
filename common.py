@@ -83,4 +83,4 @@ def printResults(GENERATED_RULES):
     print('LIST OF ALL RULES AND DEDICATED RECORDS TO THOSE RULES')
 
     for i, attr in enumerate(listOfRules.items()):
-        print("{idx} - {rule} - {records}".format(idx=i+1, rule=attr[0], records=attr[1]))
+        print("{idx} - {rule} - {records}".format(idx=i+1, rule=attr[0], records=list(dict.fromkeys(attr[1]))))
