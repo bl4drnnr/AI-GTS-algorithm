@@ -45,7 +45,7 @@ def generateNewRule(GENERATED_RULES, currentRecord, maxValues, rulesAttributes, 
     newRule = "IF "
     newRecordsWithComplicatedRules = lookForComplicatedRules(currentRecord, maxValues)
     for attr, value in newRecordsWithComplicatedRules[1].items():
-        newRule = newRule + str(attr) + " = "
+        newRule = newRule + str(attr) + " IS "
         if list(newRecordsWithComplicatedRules[1])[-1] == attr:
             newRule = newRule + str(getRule(attr, value, ALL_POSSIBLE_ATTRIBUTES))
         else:
@@ -56,7 +56,7 @@ def generateNewRule(GENERATED_RULES, currentRecord, maxValues, rulesAttributes, 
         for attr, value in record.items():
             checkForRule.append(value[KEY_ATTRIBUTE])
     if Counter(checkForRule).most_common(1)[0][1] == len(checkForRule):
-        newRule += " THEN {response} = {result}".format(
+        newRule += " THEN {response} IS {result}".format(
             response=KEY_ATTRIBUTE,
             result=getRule(KEY_ATTRIBUTE, Counter(checkForRule).most_common(1)[0][0], ALL_POSSIBLE_ATTRIBUTES)
         )

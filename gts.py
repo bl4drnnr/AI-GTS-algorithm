@@ -43,7 +43,7 @@ for x in range(INPUT_DATA_LENGTH):
             if pushSimpleRule:
                 GENERATED_RULES.append({
                     'index': x,
-                    'rule': "IF {rule} = {condition} THEN {response} = {result}"
+                    'rule': "IF {rule} IS {condition} THEN {response} IS {result}"
                     .format(
                         rule=list(currentRecordData)[rule],
                         condition=getRule(list(currentRecordData)[rule], currentRecord[list(currentRecord)[rule]], ALL_POSSIBLE_ATTRIBUTES),
