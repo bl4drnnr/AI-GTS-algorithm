@@ -43,7 +43,7 @@ def compareRuleAndRecord(rule, record):
     return res
 
 
-def calculateAllDataPerRule(rule, q):
+def calculateAllParamsPerRule(rule, q):
     E = len(DATA)
     Ep = q
     Eb = 0
