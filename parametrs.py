@@ -44,6 +44,7 @@ def calculateAllDataPerRule(rule, q):
         if record[KEY_ATTRIBUTE] == rule[KEY_ATTRIBUTE]:
             Eclass += 1
 
+    # TODO Works only for simple rule - fix
     print("Rule's strength: " + str(strength(Ep)))
     print("Rule's accuracy: " + str(accuracy(Ep, Eb)))
     print("Rule's support: " + str(support(Ep, E)))
