@@ -45,6 +45,7 @@ def calculateAllDataPerRule(rule, q):
             Eclass += 1
 
     # TODO Works only for simple rule - fix
+    # Something with accuracy and generality
     print("Rule's strength: " + str(strength(Ep)))
     print("Rule's accuracy: " + str(accuracy(Ep, Eb)))
     print("Rule's generality: " + str(generality(Ep, Eb, E)))
