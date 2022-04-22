@@ -41,11 +41,13 @@ def calculateAllDataPerRule(rule, q):
     Eclass = 0
 
     for record in DATA:
-        recordCorrection = True
-        for attr, value in rule.items():
-            print('sad')
-        if recordCorrection:
-            Eb += 1
+        for attr, value in record.items():
+            listParsedRule = list(rule)
+            if attr in listParsedRule:
+                if rule[attr] == record[attr] and rule[KEY_ATTRIBUTE] != record[KEY_ATTRIBUTE]:
+                    Eb += 1
+
+    print("Eb: " + str(Eb))
 
     print("Rule's strength: " + str(strength(Ep)))
     print("Rule's accuracy: " + str(accuracy(Ep, Eb)))
