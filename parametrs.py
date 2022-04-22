@@ -33,7 +33,7 @@ def compareRuleAndRecord(rule, record):
     res = False
     comparer = True
     for item in list(rule):
-        if rule[item] != record[item]:
+        if rule[item] == record[item] and rule[KEY_ATTRIBUTE] != record[KEY_ATTRIBUTE]:
             comparer = False
 
     if not comparer and rule[KEY_ATTRIBUTE] == record[KEY_ATTRIBUTE]:
