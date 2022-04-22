@@ -1,4 +1,5 @@
 from parser import getData, getKeyAttribute, getAllPossibleAttributes
+from parametrs import calculateAllDataPerRule
 from collections import Counter
 DATA = getData()
 KEY_ATTRIBUTE = getKeyAttribute()
@@ -93,5 +94,5 @@ def printResults(GENERATED_RULES):
     print('LIST OF ALL RULES AND DEDICATED RECORDS TO THOSE RULES')
 
     for i, attr in enumerate(listOfRules.items()):
-        deparseRule(attr[0])
+        calculateAllDataPerRule(deparseRule(attr[0]))
         print("{idx} - {rule} - {records}".format(idx=i+1, rule=attr[0], records=list(dict.fromkeys(attr[1]))))

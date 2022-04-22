@@ -1,3 +1,9 @@
+from parser import parseInputData, getAllPossibleAttributes, getKeyAttribute, getDecisionAttributes
+DATA = parseInputData()
+KEY_ATTRIBUTE = getKeyAttribute()
+ALL_POSSIBLE_ATTRIBUTES = getAllPossibleAttributes()
+
+
 def H(Epb, Ep, E):
     if Ep / Epb == 1:
         return "rule"
@@ -22,3 +28,7 @@ def specificity(Ep, Eclass):
 
 def support(Ep, E):
     return format((Ep / E), ".3f")
+
+
+def calculateAllDataPerRule(rule):
+    return
