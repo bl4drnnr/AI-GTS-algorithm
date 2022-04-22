@@ -38,6 +38,8 @@ def lookForComplicatedRules(currentRecord, maxValues):
 def generateNewRule(GENERATED_RULES, currentRecord, maxValues, rulesAttributes, ITERATOR):
     newRule = "IF "
     newRecordsWithComplicatedRules = lookForComplicatedRules(currentRecord, maxValues)
+    # Push rule to table, eliminate duplicates, and iterate one more time
+    print(newRecordsWithComplicatedRules[1])
     for attr, value in newRecordsWithComplicatedRules[1].items():
         newRule = newRule + str(attr) + " = "
         if list(newRecordsWithComplicatedRules[1])[-1] == attr:
