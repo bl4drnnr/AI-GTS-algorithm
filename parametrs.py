@@ -29,11 +29,12 @@ def support(Ep, E):
     return format((Ep / E), ".3f")
 
 
+# TODO Problem with records that are duplicated
 def compareRuleAndRecord(rule, record):
     res = False
     comparer = True
-    for attr, value in rule.items():
-        if record[attr] != rule[attr]:
+    for item in list(rule):
+        if rule[item] != record[item]:
             comparer = False
 
     if not comparer and rule[KEY_ATTRIBUTE] == record[KEY_ATTRIBUTE]:
@@ -49,8 +50,7 @@ def calculateAllDataPerRule(rule, q):
     Eclass = 0
 
     for record in DATA:
-        ruleMatch = compareRuleAndRecord(rule, record)
-        if ruleMatch:
+        if compareRuleAndRecord(rule, record):
             Eb += 1
         if record[KEY_ATTRIBUTE] == rule[KEY_ATTRIBUTE]:
             Eclass += 1
