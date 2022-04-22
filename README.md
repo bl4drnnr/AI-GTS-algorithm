@@ -17,6 +17,10 @@ Prototype of GTS AI generating rules algorithm.
 
 - Done.
 
+22.04.2022
+
+- Rule evaluation parameters.
+
 ### Example of working
 
 Al you need to do is just put your JSON data in `inputdata` in `input.json` file.
