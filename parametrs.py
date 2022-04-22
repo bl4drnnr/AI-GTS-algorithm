@@ -47,7 +47,7 @@ def calculateAllDataPerRule(rule, q):
                 if rule[attr] == record[attr] and rule[KEY_ATTRIBUTE] != record[KEY_ATTRIBUTE]:
                     Eb += 1
 
-    print("Eb: " + str(Eb))
-
     print("Rule's strength: " + str(strength(Ep)))
     print("Rule's accuracy: " + str(accuracy(Ep, Eb)))
+    print("Rule's support: " + str(support(Ep, E)))
+    print("Rule's generality: " + str(generality(Ep, Eb, E)))
