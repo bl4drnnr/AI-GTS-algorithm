@@ -1,4 +1,5 @@
-from common import getRule, getXMaxValues, generateNewRule, printResults, H
+from parametrs import H
+from common import getRule, getXMaxValues, generateNewRule, printResults
 from parser import parseInputData, getAllPossibleAttributes, getKeyAttribute, getDecisionAttributes
 DATA = parseInputData()
 KEY_ATTRIBUTE = getKeyAttribute()

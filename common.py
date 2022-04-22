@@ -18,12 +18,6 @@ def getXMaxValues(obj, n):
     return maxValues
 
 
-def H(Epb, Ep, E):
-    if Ep / Epb == 1:
-        return "rule"
-    return format((Epb / E) + (Ep / Epb) ** 0.5, ".3f")
-
-
 def lookForComplicatedRules(currentRecord, maxValues):
     newRule = {}
     newRuleRecords = []
