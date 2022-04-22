@@ -46,8 +46,11 @@ def calculateAllDataPerRule(rule, q):
             if attr in listParsedRule:
                 if rule[attr] == record[attr] and rule[KEY_ATTRIBUTE] != record[KEY_ATTRIBUTE]:
                     Eb += 1
+        if record[KEY_ATTRIBUTE] == rule[KEY_ATTRIBUTE]:
+            Eclass += 1
 
     print("Rule's strength: " + str(strength(Ep)))
     print("Rule's accuracy: " + str(accuracy(Ep, Eb)))
     print("Rule's support: " + str(support(Ep, E)))
     print("Rule's generality: " + str(generality(Ep, Eb, E)))
+    print("Rule's specificity: " + str(specificity(Ep, Eclass)))
