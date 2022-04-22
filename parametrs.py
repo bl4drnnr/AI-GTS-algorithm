@@ -29,6 +29,19 @@ def support(Ep, E):
     return format((Ep / E), ".3f")
 
 
+def compareRuleAndRecord(rule, record):
+    res = False
+    comparer = True
+    for attr, value in rule.items():
+        if record[attr] != rule[attr]:
+            comparer = False
+
+    if not comparer and rule[KEY_ATTRIBUTE] == record[KEY_ATTRIBUTE]:
+        res = True
+
+    return res
+
+
 def calculateAllDataPerRule(rule, q):
     E = len(DATA)
     Ep = q
@@ -36,16 +49,12 @@ def calculateAllDataPerRule(rule, q):
     Eclass = 0
 
     for record in DATA:
-        for attr, value in record.items():
-            listParsedRule = list(rule)
-            if attr in listParsedRule:
-                if rule[attr] == record[attr] and rule[KEY_ATTRIBUTE] != record[KEY_ATTRIBUTE]:
-                    Eb += 1
+        ruleMatch = compareRuleAndRecord(rule, record)
+        if ruleMatch:
+            Eb += 1
         if record[KEY_ATTRIBUTE] == rule[KEY_ATTRIBUTE]:
             Eclass += 1
 
-    # TODO Works only for simple rule - fix
-    # Something with accuracy and generality
     print("Rule's strength: " + str(strength(Ep)))
     print("Rule's accuracy: " + str(accuracy(Ep, Eb)))
     print("Rule's generality: " + str(generality(Ep, Eb, E)))
