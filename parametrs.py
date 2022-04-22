@@ -1,4 +1,4 @@
-from parser import getData, getAllPossibleAttributes, getKeyAttribute, getDecisionAttributes
+from parser import getData, getKeyAttribute
 DATA = getData()
 KEY_ATTRIBUTE = getKeyAttribute()
 
@@ -9,27 +9,22 @@ def H(Epb, Ep, E):
     return format((Epb / E) + (Ep / Epb) ** 0.5, ".3f")
 
 
-# Siła
 def strength(Ep):
     return Ep
 
 
-# Dokładność
 def accuracy(Ep, Eb):
     return format((Ep / (Ep + Eb)), ".3f")
 
 
-# Ogólność
 def generality(Ep, Eb, E):
     return format(((Ep + Eb) / E), ".3f")
 
 
-# Specyficzność
 def specificity(Ep, Eclass):
     return format((Ep / Eclass), ".3f")
 
 
-# Wsparcie
 def support(Ep, E):
     return format((Ep / E), ".3f")
 
@@ -46,8 +41,11 @@ def calculateAllDataPerRule(rule, q):
             if attr in listParsedRule:
                 if rule[attr] == record[attr] and rule[KEY_ATTRIBUTE] != record[KEY_ATTRIBUTE]:
                     Eb += 1
-
-    print("Eb: " + str(Eb))
+        if record[KEY_ATTRIBUTE] == rule[KEY_ATTRIBUTE]:
+            Eclass += 1
 
     print("Rule's strength: " + str(strength(Ep)))
     print("Rule's accuracy: " + str(accuracy(Ep, Eb)))
+    print("Rule's support: " + str(support(Ep, E)))
+    print("Rule's generality: " + str(generality(Ep, Eb, E)))
+    print("Rule's specificity: " + str(specificity(Ep, Eclass)))
