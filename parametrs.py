@@ -29,7 +29,6 @@ def support(Ep, E):
     return format((Ep / E), ".3f")
 
 
-# TODO Problem with records that are duplicated
 def compareRuleAndRecord(rule, record):
     res = False
     comparer = True
