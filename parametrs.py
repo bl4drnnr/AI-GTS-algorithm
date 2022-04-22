@@ -1,4 +1,6 @@
 from parser import getData, getAllPossibleAttributes, getKeyAttribute, getDecisionAttributes
+DATA = getData()
+KEY_ATTRIBUTE = getKeyAttribute()
 
 
 def H(Epb, Ep, E):
@@ -28,10 +30,9 @@ def support(Ep, E):
 
 
 def calculateAllDataPerRule(rule):
-    DATA = getData()
+    Eclass = 0
     Ep = 0
     Eb = 0
-    Eclass = 0
     print(rule)
     E = len(DATA)
     for record in DATA:
