@@ -31,8 +31,8 @@ def support(Ep, E):
 
 
 def calculateAllDataPerRule(rule):
-    Ep = None
-    Eb = None
-    Eclass = None
+    Ep = 0
+    Eb = 0
+    Eclass = 0
     E = len(DATA)
     return
