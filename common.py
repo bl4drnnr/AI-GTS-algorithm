@@ -64,6 +64,18 @@ def generateNewRule(GENERATED_RULES, currentRecord, maxValues, rulesAttributes, 
     return GENERATED_RULES
 
 
+def deparseRule(rule):
+    deparsedRule = {}
+    listOfRules = rule.split('IF')[1].split('THEN')[0].split('AND')
+    for r in listOfRules:
+        deparsedRule[r.split('=')[0].strip()] = ALL_POSSIBLE_ATTRIBUTES[r.split('=')[0].strip()][r.split('=')[1].strip()]
+
+    res = rule.split('THEN')[1].split('=')
+    deparsedRule[res[0].strip()] = ALL_POSSIBLE_ATTRIBUTES[res[0].strip()][res[1].strip()]
+
+    return deparsedRule
+
+
 def printResults(GENERATED_RULES):
     listOfRules = {}
     listOfRecords = []
@@ -81,4 +93,5 @@ def printResults(GENERATED_RULES):
     print('LIST OF ALL RULES AND DEDICATED RECORDS TO THOSE RULES')
 
     for i, attr in enumerate(listOfRules.items()):
+        deparseRule(attr[0])
         print("{idx} - {rule} - {records}".format(idx=i+1, rule=attr[0], records=list(dict.fromkeys(attr[1]))))
