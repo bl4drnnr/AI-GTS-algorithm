@@ -1,4 +1,4 @@
-from parser import getData, getAllPossibleAttributes, getKeyAttribute, getDecisionAttributes
+from parser import getData, getKeyAttribute
 DATA = getData()
 KEY_ATTRIBUTE = getKeyAttribute()
 
