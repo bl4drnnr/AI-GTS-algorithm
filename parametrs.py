@@ -29,7 +29,7 @@ def support(Ep, E):
     return format((Ep / E), ".3f")
 
 
-def calculateAllDataPerRule(rule):
+def calculateAllDataPerRule(rule, q):
     Eclass = 0
     Ep = 0
     Eb = 0
