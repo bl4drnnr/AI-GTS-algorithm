@@ -4,21 +4,21 @@ def H(Epb, Ep, E):
     return format((Epb / E) + (Ep / Epb) ** 0.5, ".3f")
 
 
-def strength():
-    return
+def strength(Ep):
+    return Ep
 
 
-def accuracy():
-    return
+def accuracy(Ep, Eb):
+    return format(((Ep / Ep) + Eb), ".3f")
 
 
-def generality():
-    return
+def generality(Ep, Eb, E):
+    return format(((Ep + Eb) / E), ".3f")
 
 
-def specificity():
-    return
+def specificity(Ep, Eclass):
+    return format((Ep / Eclass), ".3f")
 
 
-def support():
-    return
+def support(Ep, E):
+    return format((Ep / E), ".3f")
