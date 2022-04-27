@@ -1,64 +1,158 @@
 {
   "inputdata": [
     {
-      "Typ": "duzy",
-      "Cena": "akceptowalna",
-      "Predkosc": "przecietna",
-      "Zuzycie": "srednie"
+      "Wiek": "mlody",
+      "Wada_wzroku": "krotkowidz",
+      "Astygmatyzm": "nie",
+      "Lzawienie": "normalne",
+      "SOCZEWKI": "miekkie"
     },
     {
-      "Typ": "duzy",
-      "Cena": "akceptowalna",
-      "Predkosc": "duza",
-      "Zuzycie": "srednie"
+      "Wiek": "mlody",
+      "Wada_wzroku": "dalekowidz",
+      "Astygmatyzm": "tak",
+      "Lzawienie": "normalne",
+      "SOCZEWKI": "twarde"
     },
     {
-      "Typ": "duzy",
-      "Cena": "wysoka",
-      "Predkosc": "przecietna",
-      "Zuzycie": "wysokie"
+      "Wiek": "mlody",
+      "Wada_wzroku": "dalekowidz",
+      "Astygmatyzm": "nie",
+      "Lzawienie": "zmniejszone",
+      "SOCZEWKI": "brak"
     },
     {
-      "Typ": "duzy",
-      "Cena": "wysoka",
-      "Predkosc": "duza",
-      "Zuzycie": "wysokie"
+      "Wiek": "mlody",
+      "Wada_wzroku": "krotkowidz",
+      "Astygmatyzm": "tak",
+      "Lzawienie": "zmniejszone",
+      "SOCZEWKI": "brak"
     },
     {
-      "Typ": "kompakt",
-      "Cena": "akceptowalna",
-      "Predkosc": "przecietna",
-      "Zuzycie": "srednie"
+      "Wiek": "prestarczy",
+      "Wada_wzroku": "krotkowidz",
+      "Astygmatyzm": "tak",
+      "Lzawienie": "zmniejszone",
+      "SOCZEWKI": "brak"
     },
     {
-      "Typ": "kompakt",
-      "Cena": "wysoka",
-      "Predkosc": "duza",
-      "Zuzycie": "srednie"
+      "Wiek": "prestarczy",
+      "Wada_wzroku": "krotkowidz",
+      "Astygmatyzm": "nie",
+      "Lzawienie": "normalne",
+      "SOCZEWKI": "miekkie"
     },
     {
-      "Typ": "kompakt",
-      "Cena": "wysoka",
-      "Predkosc": "wolny",
-      "Zuzycie": "srednie"
+      "Wiek": "mlody",
+      "Wada_wzroku": "krotkowidz",
+      "Astygmatyzm": "tak",
+      "Lzawienie": "normalne",
+      "SOCZEWKI": "twarde"
     },
     {
-      "Typ": "maly",
-      "Cena": "akceptowalna",
-      "Predkosc": "przecietna",
-      "Zuzycie": "male"
+      "Wiek": "starczy",
+      "Wada_wzroku": "dalekowidz",
+      "Astygmatyzm": "tak",
+      "Lzawienie": "zmniejszone",
+      "SOCZEWKI": "brak"
     },
     {
-      "Typ": "maly",
-      "Cena": "wysoka",
-      "Predkosc": "mala",
-      "Zuzycie": "srednie"
+      "Wiek": "prestarczy",
+      "Wada_wzroku": "dalekowidz",
+      "Astygmatyzm": "nie",
+      "Lzawienie": "zmniejszone",
+      "SOCZEWKI": "brak"
     },
     {
-      "Typ": "duzy",
-      "Cena": "wysoka",
-      "Predkosc": "mala",
-      "Zuzycie": "wysokie"
+      "Wiek": "prestarczy",
+      "Wada_wzroku": "dalekowidz",
+      "Astygmatyzm": "tak",
+      "Lzawienie": "zmniejszone",
+      "SOCZEWKI": "brak"
+    },
+    {
+      "Wiek": "prestarczy",
+      "Wada_wzroku": "krotkowidz",
+      "Astygmatyzm": "nie",
+      "Lzawienie": "zmniejszone",
+      "SOCZEWKI": "brak"
+    },
+    {
+      "Wiek": "mlody",
+      "Wada_wzroku": "dalekowidz",
+      "Astygmatyzm": "tak",
+      "Lzawienie": "zmniejszone",
+      "SOCZEWKI": "brak"
+    },
+    {
+      "Wiek": "starczy",
+      "Wada_wzroku": "krotkowidz",
+      "Astygmatyzm": "tak",
+      "Lzawienie": "normalne",
+      "SOCZEWKI": "twarde"
+    },
+    {
+      "Wiek": "prestarczy",
+      "Wada_wzroku": "dalekowidz",
+      "Astygmatyzm": "nie",
+      "Lzawienie": "normalne",
+      "SOCZEWKI": "miekkie"
+    },
+    {
+      "Wiek": "starczy",
+      "Wada_wzroku": "dalekowidz",
+      "Astygmatyzm": "tak",
+      "Lzawienie": "normalne",
+      "SOCZEWKI": "brak"
+    },
+    {
+      "Wiek": "starczy",
+      "Wada_wzroku": "krotkowidz",
+      "Astygmatyzm": "tak",
+      "Lzawienie": "zmniejszone",
+      "SOCZEWKI": "brak"
+    },
+    {
+      "Wiek": "mlody",
+      "Wada_wzroku": "krotkowidz",
+      "Astygmatyzm": "nie",
+      "Lzawienie": "zmniejszone",
+      "SOCZEWKI": "brak"
+    },
+    {
+      "Wiek": "starczy",
+      "Wada_wzroku": "krotkowidz",
+      "Astygmatyzm": "nie",
+      "Lzawienie": "zmniejszone",
+      "SOCZEWKI": "brak"
+    },
+    {
+      "Wiek": "starczy",
+      "Wada_wzroku": "dalekowidz",
+      "Astygmatyzm": "nie",
+      "Lzawienie": "zmniejszone",
+      "SOCZEWKI": "brak"
+    },
+    {
+      "Wiek": "mlody",
+      "Wada_wzroku": "dalekowidz",
+      "Astygmatyzm": "nie",
+      "Lzawienie": "normalne",
+      "SOCZEWKI": "miekkie"
+    },
+    {
+      "Wiek": "starczy",
+      "Wada_wzroku": "dalekowidz",
+      "Astygmatyzm": "nie",
+      "Lzawienie": "normalne",
+      "SOCZEWKI": "miekkie"
+    },
+    {
+      "Wiek": "prestarczy",
+      "Wada_wzroku": "dalekowidz",
+      "Astygmatyzm": "tak",
+      "Lzawienie": "normalne",
+      "SOCZEWKI": "brak"
     }
   ]
 }
