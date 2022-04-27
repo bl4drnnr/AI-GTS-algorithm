@@ -2,7 +2,7 @@
 
 ### Description
 
-Prototype of GTS AI generating rules algorithm.
+GTS generating rules algorithm.
 
 ### Status
 08.04.2022
@@ -23,7 +23,7 @@ Prototype of GTS AI generating rules algorithm.
 
 ### Example of working
 
-Al you need to do is just put your JSON data in `inputdata` in `input.json` file.
+All you need to do is just put your JSON data in `inputdata` in `input.json` file.
 
 There is only **one** condition for the correct operation of the algorithm.
 
